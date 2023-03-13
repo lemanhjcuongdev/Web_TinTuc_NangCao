@@ -5,7 +5,7 @@ Advanced Web Development Assignment
 1. Clone this Repo by HTTPS
 2. Add file Web.config to apply local config
 <img src="./webconfig.png"/>
-3. Ignore this file on local to prevent push Web.config to remote
+3. Ignore this file on local to prevent push Web.config to remote, this file will be listed in .gitignore file
 <img src="./ignore.png"/>
 4. Web.config Example:
 
@@ -28,3 +28,9 @@ Advanced Web Development Assignment
   </system.codedom>
 </configuration>
 ```
+
+## Note:
+If Web.config, Web.Debug.config and Web.Release.config will be pushed into repo, before pushing, always remmember to review code and remove 3 files by typing in terminal (CTRL + `)
+```git rm --cached Web.config```
+```git rm --cached Web.Debug.config```
+```git rm --cached Web.Release.config```
