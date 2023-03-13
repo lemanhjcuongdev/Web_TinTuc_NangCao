@@ -30,7 +30,7 @@ Advanced Web Development Assignment
 ```
 
 ## Note:
-If Web.config, Web.Debug.config and Web.Release.config will be pushed into repo, before pushing, always remmember to review code and remove 3 files by typing in terminal (CTRL + `)
-```git rm --cached Web.config```
-```git rm --cached Web.Debug.config```
-```git rm --cached Web.Release.config```
+If Web.config, Web.Debug.config and Web.Release.config will be pushed into repo, before pushing, always remmember to review code and remove 3 files by typing in terminal (CTRL + ` )
+```git rm --cached Web.config
+git rm --cached Web.Debug.config
+git rm --cached Web.Release.config```
