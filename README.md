@@ -29,6 +29,7 @@ Advanced Web Development Assignment
 </configuration>
 ```
 5. Restart Visual Studio
+6. "Set As Start Page" the homepage and Run
 
 ## Note:
 - Always remember to pull code after open Visual Studio
