@@ -67,11 +67,81 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dangbai.aspx" />
+    <Content Include="danhsachdaluu.aspx" />
+    <Content Include="register.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="src\assets\css\global_styles\global.css" />
+    <Content Include="src\assets\css\template_styles\template.css" />
+    <Content Include="src\assets\html\css\global\global.css" />
+    <Content Include="src\assets\html\css\template\template.css" />
+    <Content Include="src\assets\html\css\trangchu\trangchu.css" />
+    <Content Include="src\assets\html\template.html" />
+    <Content Include="src\assets\html\trangchu.html" />
+    <Content Include="theloai.aspx" />
+    <Content Include="trangchu.aspx" />
+    <Content Include="trangconchitiet.aspx" />
     <Content Include="Web.config" />
     <Content Include="WelcomePage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dangbai.aspx.cs">
+      <DependentUpon>dangbai.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dangbai.aspx.designer.cs">
+      <DependentUpon>dangbai.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="danhsachdaluu.aspx.cs">
+      <DependentUpon>danhsachdaluu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="danhsachdaluu.aspx.designer.cs">
+      <DependentUpon>danhsachdaluu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Template.Master.cs">
+      <DependentUpon>Template.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template.Master.designer.cs">
+      <DependentUpon>Template.Master</DependentUpon>
+    </Compile>
+    <Compile Include="theloai.aspx.cs">
+      <DependentUpon>theloai.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="theloai.aspx.designer.cs">
+      <DependentUpon>theloai.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trangchu.aspx.cs">
+      <DependentUpon>trangchu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trangchu.aspx.designer.cs">
+      <DependentUpon>trangchu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trangconchitiet.aspx.cs">
+      <DependentUpon>trangconchitiet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trangconchitiet.aspx.designer.cs">
+      <DependentUpon>trangconchitiet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WelcomePage.aspx.cs">
       <DependentUpon>WelcomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -82,12 +152,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Template.Master" />
+    <Content Include="src\assets\css\global_styles\global.css.map" />
+    <Content Include="src\assets\css\global_styles\global.scss" />
+    <Content Include="src\assets\css\template_styles\template.css.map" />
+    <Content Include="src\assets\css\template_styles\template.scss" />
+    <Content Include="src\assets\html\css\global\global.css.map" />
+    <Content Include="src\assets\html\css\global\global.scss" />
+    <Content Include="src\assets\html\css\template\template.css.map" />
+    <Content Include="src\assets\html\css\template\template.scss" />
+    <Content Include="src\assets\html\css\trangchu\trangchu.css.map" />
+    <Content Include="src\assets\html\css\trangchu\trangchu.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\assets\images\" />
+    <Folder Include="src\assets\js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

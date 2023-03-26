@@ -1,0 +1,48 @@
+:root {
+  --title-font: "Playfair Display", serif;
+  --content-font: "Nunito", sans-serif;
+  --text-dark: #111;
+  --std-transition: all 0.2s ease-in-out;
+}
+
+* {
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--content-font);
+  scroll-behavior: smooth;
+  color: var(--text-dark);
+}
+
+body {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+} /*# sourceMappingURL=global.css.map */
+
+input {
+  outline: none;
+  border: 1px solid transparent;
+  transition: var(--std-transition);
+  padding: 10px 16px;
+  border-radius: 2px;
+  &:hover {
+    border: 1px solid var(--text-dark);
+  }
+  &:focus {
+    border: 1px solid #333333;
+  }
+}
