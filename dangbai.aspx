@@ -64,6 +64,7 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
       <th>Ảnh</th>
       <th>Thể loại</th>
       <th>Thời gian đăng</th>
+      <th>Hành động</th>
     </tr>
     <tr>
       <td>
@@ -82,6 +83,10 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
       </td>
       <td>Khoa học & Công nghệ</td>
       <td>26/03/2023 lúc 10:10</td>
+      <td>
+        <button class="editBtn">Sửa</button>
+        <button class="deleteBtn">Xóa</button>
+      </td>
     </tr>
   </table>
   <script>
@@ -92,12 +97,15 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
     const formDangBai = document.querySelector(".dangbai");
     const inputImage = document.querySelector("#inputImage");
 
-    inputImage.addEventListener("change", function () {
-      console.log(inputImage.files[0].size);
-      if (inputImage.files[0].size > 1000000) {
-        alert("Kích thước tệp phải nhỏ hơn 1MB");
-      }
-    });
+    const editBtn = document.querySelector(".editBtn");
+    const deleteBtn = document.querySelector(".deleteBtn");
+
+    // inputImage.addEventListener("change", function () {
+    //   console.log(inputImage.files[0].size);
+    //   if (inputImage.files[0].size > 1000000) {
+    //     alert("Kích thước tệp phải nhỏ hơn 1MB");
+    //   }
+    // });
 
     inputTitle.addEventListener("change", function () {
       var itemArray = inputTitle.value.split(" ");

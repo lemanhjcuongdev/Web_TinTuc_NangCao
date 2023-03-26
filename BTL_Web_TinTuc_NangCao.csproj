@@ -71,7 +71,9 @@
     <Content Include="danhsachdaluu.aspx" />
     <Content Include="register.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="src\assets\css\dangbai\dangbai.css" />
     <Content Include="src\assets\css\global_styles\global.css" />
+    <Content Include="src\assets\css\login_register\login.css" />
     <Content Include="src\assets\css\template_styles\template.css" />
     <Content Include="theloai.aspx" />
     <Content Include="trangchu.aspx" />
