@@ -39,3 +39,7 @@ git rm --cached Web.config
 git rm --cached Web.Debug.config
 git rm --cached Web.Release.config
 ```
+- Run SCSS
++ Open Visual Studio Code (Blue Icon)
++ <a href="https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass">Download this extension</a>
++ ![image](https://user-images.githubusercontent.com/81514034/227756950-894eb8f1-dc55-43a0-aa3b-ed8d3f106227.png)
