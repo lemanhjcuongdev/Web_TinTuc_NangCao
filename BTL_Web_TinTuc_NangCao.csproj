@@ -73,15 +73,9 @@
     <Content Include="login.aspx" />
     <Content Include="src\assets\css\global_styles\global.css" />
     <Content Include="src\assets\css\template_styles\template.css" />
-    <Content Include="src\assets\html\css\global\global.css" />
-    <Content Include="src\assets\html\css\template\template.css" />
-    <Content Include="src\assets\html\css\trangchu\trangchu.css" />
-    <Content Include="src\assets\html\template.html" />
-    <Content Include="src\assets\html\trangchu.html" />
     <Content Include="theloai.aspx" />
     <Content Include="trangchu.aspx" />
     <Content Include="trangconchitiet.aspx" />
-    <Content Include="Web.config" />
     <Content Include="WelcomePage.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -157,12 +151,7 @@
     <Content Include="src\assets\css\global_styles\global.scss" />
     <Content Include="src\assets\css\template_styles\template.css.map" />
     <Content Include="src\assets\css\template_styles\template.scss" />
-    <Content Include="src\assets\html\css\global\global.css.map" />
-    <Content Include="src\assets\html\css\global\global.scss" />
-    <Content Include="src\assets\html\css\template\template.css.map" />
-    <Content Include="src\assets\html\css\template\template.scss" />
-    <Content Include="src\assets\html\css\trangchu\trangchu.css.map" />
-    <Content Include="src\assets\html\css\trangchu\trangchu.scss" />
+    <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
