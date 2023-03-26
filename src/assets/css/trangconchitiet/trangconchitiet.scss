@@ -1,0 +1,41 @@
+.head {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  padding-top: 35px;
+  padding-bottom: 100px;
+  background-color: #12162d;
+  text-align: center;
+  p {
+    display: inline-block;
+    padding: 5px;
+    background-color: #f94144 !important;
+    margin-bottom: 25px;
+  }
+  h1 {
+    color: white;
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+}
+.description {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: -70px;
+  width: 80%;
+  position: relative;
+  img {
+    display: block;
+    border-radius: 8px;
+    max-height: 400px;
+    object-fit: cover;
+    width: 100%;
+  }
+  p {
+    line-height: 1.6;
+    margin-top: 2rem;
+    margin-bottom: 10px;
+    font-size: 20.4px;
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.9) !important;
+  }
+}

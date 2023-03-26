@@ -1,17 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WelcomePage.aspx.cs" Inherits="BTL_Web_TinTuc_NangCao.WelcomePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WelcomePage.aspx.cs"
+Inherits="BTL_Web_TinTuc_NangCao.WelcomePage" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Started Page</title>
-</head>
-<body>
+  <head runat="server">
+    <title>NewNews - Home</title>
+  </head>
+  <body>
     <form id="form1" runat="server">
-        <div>
-            WELCOME FROM GITHUB
-            ABC Q
-        </div>
+      <div>WELCOME FROM GITHUB</div>
     </form>
-</body>
+  </body>
 </html>
