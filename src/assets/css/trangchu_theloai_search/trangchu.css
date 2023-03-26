@@ -16,17 +16,46 @@ h2 + div.content {
 .content .item {
   width: 100%;
 }
-.content .item a .label {
+.content .item a .information {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .item a .information .label {
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
-.content .item a .label p.title {
+.content .item a .information .label p.title {
   font-weight: 800;
   font-family: var(--title-font);
 }
-.content .item a .label .sub_title {
+.content .item a .information .label .sub_title {
   font-size: 12px;
+}
+.content .item a .information i {
+  padding: 10px;
+  font-size: 26px;
+  margin-left: 18px;
+  transition: var(--std-transition);
+}
+.content .item a .information i:hover {
+  background-color: #eee;
+  border-radius: 4px;
+}
+.content .item a .information i.fa-solid.fa-bookmark.new {
+  display: none;
+  color: #fadd19;
+}
+.content .item a .information i.fa-regular.fa-bookmark {
+  display: none;
+}
+.content .item a .information i.fa-regular.fa-bookmark.active {
+  display: block;
+}
+.content .item a .information i.fa-solid.fa-bookmark.new.active {
+  display: block;
+  color: #fadd19;
 }
 .content .item img {
   width: 100%;
