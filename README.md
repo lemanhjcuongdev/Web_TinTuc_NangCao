@@ -28,9 +28,12 @@ Advanced Web Development Assignment
   </system.codedom>
 </configuration>
 ```
+5. Restart Visual Studio
+6. "Set As Start Page" the homepage and Run
 
 ## Note:
-If Web.config, Web.Debug.config and Web.Release.config will be pushed into repo, before pushing, always remmember to review code and remove 3 files by typing in terminal (CTRL + ` )
+- Always remember to pull code after open Visual Studio
+- If Web.config, Web.Debug.config and Web.Release.config will be pushed into repo, before pushing, always remmember to review code and remove 3 files by typing in terminal (CTRL + ` )
 ```
 git rm --cached Web.config
 git rm --cached Web.Debug.config
