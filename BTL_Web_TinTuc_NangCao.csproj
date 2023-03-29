@@ -75,6 +75,8 @@
     <Content Include="src\assets\css\global_styles\global.css" />
     <Content Include="src\assets\css\login_register\login.css" />
     <Content Include="src\assets\css\template_styles\template.css" />
+    <Content Include="src\assets\css\trangchu_theloai_search\trangchu.css" />
+    <Content Include="src\assets\css\trangconchitiet\trangconchitiet.css" />
     <Content Include="theloai.aspx" />
     <Content Include="trangchu.aspx" />
     <Content Include="trangconchitiet.aspx" />
@@ -154,6 +156,10 @@
     <Content Include="src\assets\css\template_styles\template.css.map" />
     <Content Include="src\assets\css\template_styles\template.scss" />
     <Content Include="Web.config" />
+    <Content Include="src\assets\css\trangconchitiet\trangconchitiet.css.map" />
+    <Content Include="src\assets\css\trangconchitiet\trangconchitiet.scss" />
+    <Content Include="src\assets\css\trangchu_theloai_search\trangchu.css.map" />
+    <Content Include="src\assets\css\trangchu_theloai_search\trangchu.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
