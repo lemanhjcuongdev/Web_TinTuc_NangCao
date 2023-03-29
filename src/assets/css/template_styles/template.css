@@ -130,16 +130,16 @@ footer ul.child_footer1 li a:hover {
   text-decoration: underline;
 }
 
-li.publish,
+/*li.publish,
 li.saved,
 li.logout,
 li.personal {
   display: none;
-}
+}*/
 
-li.publish.active,
+/*li.publish.active,
 li.saved.active,
 li.logout.active,
 li.personal.active {
   display: inline-block;
-}/*# sourceMappingURL=template.css.map */
+}*//*# sourceMappingURL=template.css.map */

@@ -69,6 +69,8 @@
   <ItemGroup>
     <Content Include="dangbai.aspx" />
     <Content Include="danhsachdaluu.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="logout.aspx" />
     <Content Include="register.aspx" />
     <Content Include="login.aspx" />
     <Content Include="src\assets\css\global_styles\global.css" />
@@ -92,6 +94,16 @@
     </Compile>
     <Compile Include="danhsachdaluu.aspx.designer.cs">
       <DependentUpon>danhsachdaluu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>

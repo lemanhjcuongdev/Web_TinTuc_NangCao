@@ -73,49 +73,80 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
               </button>
             </form>
           </li>
+             
           <li class="personal active">
-            <a href="login.aspx" title="Đăng nhập">
-              <i class="fa-solid fa-user"></i>
-              <span>cuong1806</span>
+
+              <div id="login" runat="server">
+                  <a href="login.aspx" title="Đăng nhập">
+                Đăng Nhập
             </a>
-            <div class="popup">
-              <ul>
-                <li class="publish">
-                  <a href="dangbai.aspx" title="Đăng bài">
-                    <i class="fa-solid fa-pen"></i>
-                    <span>Thêm, sửa, xóa báo</span>
-                  </a>
-                </li>
-                <li class="saved">
-                  <a href="danhsachdaluu.aspx" title="Danh sách đã lưu">
-                    <i class="fa-solid fa-bookmark"></i>
-                    <span>Danh sách báo đã lưu</span>
-                  </a>
-                </li>
-                <li class="logout">
-                  <a href="logout.aspx" title="Đăng xuất">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span>Đăng xuất</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+              </div>
+              
+               <div id="nav" runat="server">
+                        <i class="fa-solid fa-user" ></i>
+                         <span id="name"></span>
+
+                   <div id="admin" runat="server">
+                     <div class="popup">
+                       <ul>
+                         <li class="publish">
+                          <a href="dangbai.aspx" title="Đăng bài">
+                             <i class="fa-solid fa-pen"></i>
+                              <span>Thêm, sửa, xóa báo</span>
+                           </a>
+                         </li>
+
+                         <li class="saved">
+                           <a href="danhsachdaluu.aspx" title="Danh sách đã lưu">
+                             <i class="fa-solid fa-bookmark"></i>
+                             <span>Danh sách báo đã lưu</span>
+                           </a>
+                         </li>
+
+                         <li class="logout">
+
+                           <a href="logout.aspx" title="Đăng xuất">
+                             <i class="fa-solid fa-right-from-bracket"></i>
+                             <span>Đăng xuất</span>
+                           </a>
+                         </li>
+
+                       </ul>
+                     </div>
+
+                   </div>
+                
+                   <div id="user" runat="server">
+                       <div class="popup">
+                       <ul>
+                         <li class="publish" style="display:none;">
+                          <a href="dangbai.aspx" title="Đăng bài">
+                             <i class="fa-solid fa-pen"></i>
+                              <span>Thêm, sửa, xóa báo</span>
+                           </a>
+                         </li>
+
+                         <li class="saved">
+                           <a href="danhsachdaluu.aspx" title="Danh sách đã lưu">
+                             <i class="fa-solid fa-bookmark"></i>
+                             <span>Danh sách báo đã lưu</span>
+                           </a>
+                         </li>
+
+                         <li class="logout">
+                           <a href="logout.aspx" title="Đăng xuất">
+                             <i class="fa-solid fa-right-from-bracket"></i>
+                             <span>Đăng xuất</span>
+                           </a>
+                         </li>
+
+                       </ul>
+                     </div>
+                   </div>
+                     
+               </div>
           </li>
-          <!-- <li class="publish">
-            <a href="dangbai.aspx" title="Đăng bài">
-              <i class="fa-solid fa-pen"></i>
-            </a>
-          </li> -->
-          <!-- <li class="saved">
-            <a href="saved_list.aspx" title="Danh sách đã lưu">
-              <i class="fa-solid fa-bookmark"></i>
-            </a>
-          </li> -->
-          <!-- <li class="logout">
-            <a href="logout.aspx" title="Đăng xuất">
-              <i class="fa-solid fa-right-from-bracket"></i>
-            </a>
-          </li> -->
+       
         </ul>
       </nav>
     </header>
@@ -152,7 +183,26 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
       </ul>
     </footer>
     <script type="text/javascript">
-      const publishBtn = document.querySelector(".publish");
+
+        if (document.cookie.split('=')[1] != null) {
+            if (document.cookie.split('=')[1] == "admin") {
+                document.getElementById("name").innerHTML = document.cookie.split('=')[1];
+                document.getElementById("user").style.display = "none";
+                document.getElementById("login").style.display = "none";
+            }
+            else if (document.cookie.split('=')[1] != "admin") {
+                document.getElementById("name").innerHTML = document.cookie.split('=')[1];
+                document.getElementById("admin").style.display = "none";
+                document.getElementById("login").style.display = "none";
+            }
+        }
+
+        else {
+            document.getElementById("login").style.display = "block";
+            document.getElementById("nav").style.display = "none";
+        }
+
+      /*const publishBtn = document.querySelector(".publish");
       const logoutBtn = document.querySelector(".logout");
       const personalBtn = document.querySelector(".personal");
       const savedBtn = document.querySelector(".saved");
@@ -170,7 +220,7 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
         logoutBtn.classList.remove("active");
         // personalBtn.classList.add("active");
         savedBtn.classList.remove("active");
-      }
+      }*/
     </script>
   </body>
 </html>
