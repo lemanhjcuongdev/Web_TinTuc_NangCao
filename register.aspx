@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template.Master"
 AutoEventWireup="true" CodeBehind="register.aspx.cs"
-Inherits="BTL_Web_TinTuc_NangCao.login" %>
+Inherits="BTL_Web_TinTuc_NangCao.register" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content
@@ -13,19 +13,19 @@ Inherits="BTL_Web_TinTuc_NangCao.login" %>
     <h1>Đăng nhập</h1>
     <form id="form2" method="post" action="#">
       <label>Tài khoản: </label>
-      <input type="text" class="taikhoan1" name="inputTKDK" /><br />
+      <input id="inputTKDK" type="text" class="taikhoan1" name="inputTKDK" runat="server" /><br />
       <div class="error"></div>
       <!-- Vui lòng nhập đủ tên đăng nhập! -->
       <br />
       <label>Mật khẩu: </label>
-      <input type="password" class="matkhau1" name="inputMKDK" /><br />
+      <input id="inputMKDK" type="password" class="matkhau1" name="inputMKDK" runat="server" /><br />
       <div class="error"></div>
       <!-- Vui lòng nhập đủ mật khẩu! -->
       <br />
       <label>Nhập lại mật khẩu: </label>
-      <input type="password" class="check" name="inputMKCheckDK" /><br />
+      <input id="inputMKCheckDK" type="password" class="check" name="inputMKCheckDK" runat="server" /><br />
       <br />
-      <div class="error"></div>
+      <div id="errorMessage" class="error" style="color:red;" runat="server"></div>
       <!-- Mật khẩu nhập lại không khớp! -->
       <br />
       <button class="dangky" type="submit">ĐĂNG KÝ</button>
@@ -63,7 +63,8 @@ Inherits="BTL_Web_TinTuc_NangCao.login" %>
         alert("Mật khẩu không trùng khớp");
         checkDK.focus();
       } else {
-        formDK.submit();
+          //formDK.submit();
+          window.location.assign("register.aspx?name=" + tkDK.value + "&pass=" + mkDK.value + "");
       }
     });
   </script>
