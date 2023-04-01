@@ -37,9 +37,14 @@ namespace BTL_Web_TinTuc_NangCao
                                 if (!reader.Read())
                                 {
                                     reader.Close();
-                                    Session["name"] = name;
+                                   /* Session["name"] = name;
                                     Session["login"] = true;
-                                    Session["admin"] = "";
+                                    Session["admin"] = "";*/
+                                    HttpCookie user = new HttpCookie("user");
+                                    user.Value = name;
+                                    user.Expires = DateTime.Now.AddSeconds(10);
+                                    HttpContext.Current.Response.Cookies.Add(user);
+
                                     cmd.CommandText = "insert into tblUser(sTenTaiKhoan,sMatKhau) values('"+ name + "','"+ pass + "')";
                                     cmd.ExecuteNonQuery();
                                     Response.Redirect("trangchu.aspx");
