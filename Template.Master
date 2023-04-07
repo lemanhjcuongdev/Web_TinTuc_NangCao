@@ -65,7 +65,7 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
               action="trangchu.aspx"
               method="post"
               id="form1"
-              runat="server"
+              
             >
               <input name="inputSearch" type="text" placeholder="Tìm kiếm" />
               <button type="submit" title="Tìm kiếm">
@@ -119,12 +119,15 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
         </ul>
       </nav>
     </header>
-    <div class="main_content" id="main_content">
-      <div class="container">
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
-      </div>
-    </div>
+      
+        <div class="main_content" id="main_content">
+              <div class="container">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+              </div>
+        </div>
+      
+    
     <footer>
       <ul class="child_footer1">
         <li>
