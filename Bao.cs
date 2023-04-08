@@ -17,6 +17,7 @@ namespace BTL_Web_TinTuc_NangCao
         public string ngay { get; set; }
         public string tacgia { get; set; }
         public int idTheLoai { get; set; }
+        public string theloai { get; set; }
 
         public Bao()
         {
@@ -62,7 +63,8 @@ namespace BTL_Web_TinTuc_NangCao
                             bao.idBao = id;
                             bao.tenbao = row["sTenBao"].ToString();
                             bao.noidung = row["sNoiDung"].ToString();
-                            bao.idTheLoai = int.Parse(row["iMaTheLoai"].ToString()); 
+                            bao.idTheLoai = int.Parse(row["iMaTheLoai"].ToString());
+                            bao.url = row["sURLanh"].ToString();
                         }
                             
 
@@ -90,6 +92,27 @@ namespace BTL_Web_TinTuc_NangCao
             }
 
             return id;
+        }
+
+        public string getTheloai(int id)
+        {
+            string theloai= "";
+            using (SqlConnection connection = new SqlConnection(constr))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand("sp_getTheLoaiBao", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", id);
+                    SqlDataReader rd = cmd.ExecuteReader();
+                    if (rd.Read())
+                    {
+                        theloai = rd["sTenTheLoai"].ToString();
+                    }
+                }
+            }
+
+            return theloai;
         }
 
         public bool updateBao(Bao bao)

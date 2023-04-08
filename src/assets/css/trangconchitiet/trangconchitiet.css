@@ -40,4 +40,11 @@
   font-size: 20.4px;
   text-align: justify;
   color: rgba(0, 0, 0, 0.9) !important;
-}/*# sourceMappingURL=trangconchitiet.css.map */
+}
+pre.content {
+    max-width: 100%;
+    text-align: justify;
+    white-space: break-spaces;
+}
+
+/*# sourceMappingURL=trangconchitiet.css.map */
