@@ -37,7 +37,7 @@ namespace BTL_Web_TinTuc_NangCao
                                     {
                                     HttpCookie user = new HttpCookie("user");
                                     user.Value = name;
-                                    user.Expires = DateTime.Now.AddSeconds(10);
+                                    user.Expires = DateTime.Now.AddMinutes(20);
                                     HttpContext.Current.Response.Cookies.Add(user);
 
                                     Response.Redirect("trangchu.aspx");

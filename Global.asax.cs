@@ -18,8 +18,6 @@ namespace BTL_Web_TinTuc_NangCao
         protected void Session_Start(object sender, EventArgs e)
         {
             Session["login"] = false;
-            Session["admin"] = "";
-            Session["name"] = "";
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

@@ -254,6 +254,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="sql\BTLWebnangcao.sql" />
     <Content Include="src\assets\a.jpg" />
     <Content Include="src\assets\css\dangbai\dangbai.css" />
     <Content Include="src\assets\css\dangbai\dangbai.css.map" />
