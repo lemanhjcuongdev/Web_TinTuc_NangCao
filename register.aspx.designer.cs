@@ -15,33 +15,6 @@ namespace BTL_Web_TinTuc_NangCao
     {
 
         /// <summary>
-        /// inputTKDK control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inputTKDK;
-
-        /// <summary>
-        /// inputMKDK control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword inputMKDK;
-
-        /// <summary>
-        /// inputMKCheckDK control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword inputMKCheckDK;
-
-        /// <summary>
         /// errorMessage control.
         /// </summary>
         /// <remarks>

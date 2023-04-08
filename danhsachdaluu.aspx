@@ -13,26 +13,34 @@ Inherits="BTL_Web_TinTuc_NangCao.danhsachdaluu" %>
     href="./src/assets/css/trangchu_theloai_search/trangchu.css"
   />
   <h2>Danh sách báo đã lưu</h2>
+      <span id="isEmpty" runat="server" style="color:gray;"></span>
+
   <div class="content">
-    <section class="item" id="abc">
-      <a href="#">
+    
+         <asp:Repeater ID="Repeater1" runat="server">
+        <ItemTemplate>
+            <section class="item" id="abc">
+             <a href="#">
         <img
-          src="https://wallpapers.ispazio.net/wp-content/uploads/2021/04/hello-iphone-1.png"
+          src="<%#Eval("sURLAnh") %>"
         />
         <div class="label">
           <p class="title">
-            TITLE
-            TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETIdfasdasdasdasdđâsdasdasdsa
+           <%#Eval("sTenBao") %>
           </p>
           <p class="sub_title">
-            SUB_TITLE TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLE
+              <%# Eval("sNoiDung").ToString().Substring(0, 100) %> <a href="#" id="see_more"><i>...Xem thêm</i></a>
           </p>
         </div>
         <section class="description">
-          <p class="time">TIME</p>
-          <p class="category">CATEGORY</p>
+          <p class="time"><%#Eval("dNgayPhatHanh") %></p>
+          <p class="category"><%#Eval("sTenTheLoai") %></p>
         </section>
       </a>
-    </section>
+         </section>
+        </ItemTemplate>
+    </asp:Repeater>
+     
+   
   </div>
 </asp:Content>

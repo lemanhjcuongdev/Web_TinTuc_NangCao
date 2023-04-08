@@ -31,6 +31,7 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
               <p class="category">CATEGORY</p>
             </section>
           </div>
+           <%-- icon click lưu báo--%>
           <i class="fa-regular fa-bookmark active"></i>
           <i class="fa-solid fa-bookmark new"></i>
         </div>
@@ -188,7 +189,7 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
 
     notSaveBtn.addEventListener("click", () => {
       notSaveBtn.classList.remove("active");
-      haveSavedBtn.classList.add("active");
+        haveSavedBtn.classList.add("active");
     });
     haveSavedBtn.addEventListener("click", () => {
       notSaveBtn.classList.add("active");

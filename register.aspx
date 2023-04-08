@@ -13,17 +13,17 @@ Inherits="BTL_Web_TinTuc_NangCao.register" %>
     <h1>Đăng nhập</h1>
     <form id="form2" method="post" action="#">
       <label>Tài khoản: </label>
-      <input id="inputTKDK" type="text" class="taikhoan1" name="inputTKDK" runat="server" /><br />
+      <input id="inputTKDK" type="text" class="taikhoan1" name="inputTKDK" /><br />
       <div class="error"></div>
       <!-- Vui lòng nhập đủ tên đăng nhập! -->
       <br />
       <label>Mật khẩu: </label>
-      <input id="inputMKDK" type="password" class="matkhau1" name="inputMKDK" runat="server" /><br />
+      <input id="inputMKDK" type="password" class="matkhau1" name="inputMKDK" /><br />
       <div class="error"></div>
       <!-- Vui lòng nhập đủ mật khẩu! -->
       <br />
       <label>Nhập lại mật khẩu: </label>
-      <input id="inputMKCheckDK" type="password" class="check" name="inputMKCheckDK" runat="server" /><br />
+      <input id="inputMKCheckDK" type="password" class="check" name="inputMKCheckDK" /><br />
       <br />
       <div id="errorMessage" class="error" style="color:red;" runat="server"></div>
       <!-- Mật khẩu nhập lại không khớp! -->
@@ -53,7 +53,7 @@ Inherits="BTL_Web_TinTuc_NangCao.register" %>
       //dùng match để tìm kiếm
     });
 
-    btnDK.addEventListener("click", function (e) {
+    /*btnDK.addEventListener("click", function (e) {
       e.preventDefault();
       if (tkDK.value.trim() === "") {
         alert("Tài khoản không được trống");
@@ -66,6 +66,6 @@ Inherits="BTL_Web_TinTuc_NangCao.register" %>
           //formDK.submit();
           window.location.assign("register.aspx?name=" + tkDK.value + "&pass=" + mkDK.value + "");
       }
-    });
+    });*/
   </script>
 </asp:Content>

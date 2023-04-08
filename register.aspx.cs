@@ -18,48 +18,56 @@ namespace BTL_Web_TinTuc_NangCao
             string cnnstr = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
             if (!IsPostBack)
             {
-                string name = Request.QueryString["name"];
-                string pass = Request.QueryString["pass"];
-
-                if (name != null && pass != null)
+                // get dữ liệu qua metthob post
+                string name = Request.Form["inputTKDK"];
+                string pass = Request.Form["inputMKDK"];
+                string re_pass = Request.Form["inputMKCheckDK"];
+                //check null
+                if (name != null && pass != null && re_pass!=null)
                 {
-                    try
+                    // check trùng
+                    if (pass != re_pass)
                     {
-                        using (SqlConnection cnn = new SqlConnection(cnnstr))
+                        errorMessage.InnerHtml = "Mật khẩu không trùng nhau";
+                    }
+                    // thêm mới
+                    else
+                    {
+                        try
                         {
-                            using (SqlCommand cmd = new SqlCommand())
+                            using (SqlConnection cnn = new SqlConnection(cnnstr))
                             {
-                                cmd.Connection = cnn;
-                                cnn.Open();
-                                cmd.CommandType = CommandType.Text;
-                                cmd.CommandText = "select * from tblUser where sTenTaiKhoan = '" + name + "'and sMatKhau='" + pass + "'";
-                                SqlDataReader reader = cmd.ExecuteReader();
-                                if (!reader.Read())
+                                using (SqlCommand cmd = new SqlCommand())
                                 {
-                                    reader.Close();
-                                   /* Session["name"] = name;
-                                    Session["login"] = true;
-                                    Session["admin"] = "";*/
-                                    HttpCookie user = new HttpCookie("user");
-                                    user.Value = name;
-                                    user.Expires = DateTime.Now.AddSeconds(10);
-                                    HttpContext.Current.Response.Cookies.Add(user);
+                                    cmd.Connection = cnn;
+                                    cnn.Open();
+                                    cmd.CommandType = CommandType.Text;
+                                    cmd.CommandText = "select * from tblUser where sTenTaiKhoan = '" + name + "'and sMatKhau='" + pass + "'";
+                                    SqlDataReader reader = cmd.ExecuteReader();
+                                    if (!reader.Read())
+                                    {
+                                        reader.Close();
+                                        HttpCookie user = new HttpCookie("user");
+                                        user.Value = name;
+                                        user.Expires = DateTime.Now.AddSeconds(30);
+                                        HttpContext.Current.Response.Cookies.Add(user);
 
-                                    cmd.CommandText = "insert into tblUser(sTenTaiKhoan,sMatKhau) values('"+ name + "','"+ pass + "')";
-                                    cmd.ExecuteNonQuery();
-                                    Response.Redirect("trangchu.aspx");
+                                        cmd.CommandText = "insert into tblUser(sTenTaiKhoan,sMatKhau) values('" + name + "','" + pass + "')";
+                                        cmd.ExecuteNonQuery();
+                                        Response.Redirect("trangchu.aspx");
+                                    }
+                                    else
+                                    {
+                                        errorMessage.InnerHtml = "tài khoản đã tồn tại!";
+                                    }
+                                    cnn.Close();
                                 }
-                                else
-                                {
-                                    errorMessage.InnerHtml = "tài khoản đã tồn tại!";
-                                }
-                                cnn.Close();
                             }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        Response.Write("ERORR:" + ex.Message);
+                        catch (Exception ex)
+                        {
+                            Response.Write("ERORR:" + ex.Message);
+                        }
                     }
                 }
             }
