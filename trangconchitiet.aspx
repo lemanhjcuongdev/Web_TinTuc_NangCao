@@ -12,36 +12,21 @@ Inherits="BTL_Web_TinTuc_NangCao.trangconchitiet" %>
     rel="stylesheet"
     href="./src/assets/css/trangconchitiet/trangconchitiet.css"
   />
-  <div class="head">
-    <p>Thể loại</p>
-    <h1>
-      Tiêu đề bài báo \\n Lorem, ipsum dolor sit amet consectetur adipisicing
-      elit. Eos recusandae ipsam ex modi laboriosam quidem praesentium velit
-      asperiores sit. Maxime ea quia cupiditate? Quidem tenetur obcaecati ipsa
-      nam at saepe?
-    </h1>
-  </div>
-  <div class="description">
-    <img
-      src="https://wallpapers.ispazio.net/wp-content/uploads/2021/04/hello-iphone-1.png"
-    />
-    <p class="title">
-      Nội dung của bài báo Nội dung của bài báoNội dung của bài báoNội dung của
-      bài báoNội dung của bài báoNội dung của bài báoNội dung của bài báoNội
-      dung của bài báoNội dung của bài báoNội dung của bài báoNội dung của bài
-      báoNội dung của bài báoNội dung của bài báoNội dung của bài báoNội dung
-      của bài báoNội dung của bài báoNội dung của bài báoNội dung của bài báoNội
-      dung của bài báoNội dung của bài báoNội dung của bài báoNội dung của bài
-      báoNội dung của bài báoNội dung của bài báoNội dung của bài báoNội dung
-      của bài báoNội dung của bài báoNội dung của bài báoNội dung của bài báoNội
-      dung của bài báoNội dung của bài báoNội dung của bài báoNội dung của bài
-      báoNội dung của bài báoNội dung của bài báoNội dung của bài báoNội dung
-      của bài báoNội dung của bài báoNội dung của bài báoNội dung của bài báoNội
-      dung của bài báoNội dung của bài báoNội dung của bài báoNội dung của bài
-      báoNội dung của bài báoNội dung của bài báo Lorem ipsum dolor sit, amet
-      consectetur adipisicing elit. Minima magni sunt, tempore nulla aperiam
-      molestiae accusantium neque inventore beatae dolorum molestias aliquam
-      provident, recusandae ipsa! Est ad ullam eos voluptatem?
-    </p>
-  </div>
+    <asp:Repeater ID="Repeater1" runat="server">
+        <ItemTemplate>
+             <div class="head">
+                <p class="theloai"><%#Eval("theloai") %></p>
+                <h1 class="title">
+                    <%#Eval("tenbao") %>
+                </h1>
+              </div>
+              <div class="description">
+                <img src="<%#Eval("url") %>"/>
+                <pre class="content">
+                    <%#Eval("noidung") %>
+                </pre>
+              </div>
+        </ItemTemplate>
+    </asp:Repeater>
+ 
 </asp:Content>

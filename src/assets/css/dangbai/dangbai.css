@@ -1,3 +1,4 @@
+
 form {
   margin: 10px;
 }
@@ -68,6 +69,12 @@ table tr th {
 }
 table tr td {
   padding: 10px;
+}
+table tr td img {
+    margin : 0 auto;
+    display:block;
+    width: 200px;
+    max-height: 200px;
 }
 table tr td a:hover {
   text-decoration: underline;
