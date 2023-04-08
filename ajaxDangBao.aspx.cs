@@ -14,11 +14,10 @@ namespace BTL_Web_TinTuc_NangCao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             Bao bao = new Bao();
-            if (Request.HttpMethod == "POST")
-            {
-                // lấy giá trị truyền vào input
-                if (Request.Form["id"] != null & Request.Form["inputTitle"]==null)
+            // lấy giá trị truyền vào input
+            if (Request.Form["id"] != null & Request.Form["inputTitle"]==null)
                 {
                     bao.idBao = int.Parse(Request.Form["id"]);
                     bao = bao.getBaoID(bao.idBao);
@@ -49,7 +48,7 @@ namespace BTL_Web_TinTuc_NangCao
                         return;
                     }
                 }
-                bao.tacgia = "Hồng Quân";
+                bao.tacgia = "admin";
                 bao.ngayphathanh = DateTime.Now;
                 bao.ngay = bao.ngayphathanh.ToString("MM-dd-yyyy");
                 bao.tenbao = Request.Form["inputTitle"];
@@ -113,4 +112,3 @@ namespace BTL_Web_TinTuc_NangCao
             }
         }
     }
-}

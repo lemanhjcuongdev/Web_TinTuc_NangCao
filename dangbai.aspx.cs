@@ -14,6 +14,26 @@ namespace BTL_Web_TinTuc_NangCao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            HttpCookie myCookie = Request.Cookies["user"];
+            
+            if (myCookie != null)
+            {
+                if (myCookie.Value != "admin")
+                {
+                        Response.Write("<script>alert('Bạn ko có quyền đăng bài!')</script>");
+                        Response.Flush();
+                        Response.End();
+                        return;        
+                } 
+                
+            }
+            else
+            {
+                Response.Write("<script>alert('Bạn ko có quyền đăng bài!')</script>");
+                Response.Flush();
+                Response.End();
+                return;
+            }
             Bao bao = new Bao();
             if (!IsPostBack)
             {
@@ -22,7 +42,7 @@ namespace BTL_Web_TinTuc_NangCao
                 ddlTheLoai.DataTextField = "sTentheloai";
                 ddlTheLoai.DataValueField = "iMaTheLoai";
                 ddlTheLoai.DataBind();
-                DataTable data_user = bao.getBao_User("Hồng Quân");
+                DataTable data_user = bao.getAllBao();
                 rptBao_user.DataSource = data_user;
                 rptBao_user.DataBind();
             }

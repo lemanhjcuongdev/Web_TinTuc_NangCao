@@ -14,18 +14,26 @@ Inherits="BTL_Web_TinTuc_NangCao.trangconchitiet" %>
   />
     <asp:Repeater ID="Repeater1" runat="server">
         <ItemTemplate>
+            </div>
+                <div class="child_footer1">
+               <i>Số lượt xem : <%#Eval("soluotxem") %></i> 
+            </div>
+            <br />
              <div class="head">
                 <p class="theloai"><%#Eval("theloai") %></p>
                 <h1 class="title">
                     <%#Eval("tenbao") %>
                 </h1>
               </div>
+            
               <div class="description">
                 <img src="<%#Eval("url") %>"/>
+                  <br /><br />
                 <pre class="content">
                     <%#Eval("noidung") %>
                 </pre>
               </div>
+
         </ItemTemplate>
     </asp:Repeater>
  
