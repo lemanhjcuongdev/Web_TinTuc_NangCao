@@ -13,18 +13,18 @@ Inherits="BTL_Web_TinTuc_NangCao.login" %>
     <h1>Đăng nhập</h1>
     <form id="formdn" method="post" action="#">
       <label>Tài khoản: </label>
-      <input type="text" class="taikhoan" name="inputTK" /><br />
+      <input  type="text" class="taikhoan" name="inputTK" /><br />
       <div class="error"></div>
       <!-- Vui lòng nhập đủ tên đăng nhập! -->
       <br />
       <label>Mật khẩu: </label>
-      <input type="password" class="matkhau" name="inputMK" /><br />
-      <div class="error"></div>
+      <input type="password" class="matkhau" name="inputMK"  /><br />
+      <div  id="error" class="error" style="color:red;" runat="server"></div>
       <!-- Vui lòng nhập đủ mật khẩu! -->
       <br />
       <button type="submit" id="btnDangNhap">ĐĂNG NHẬP</button>
     </form>
-    <div class="error"></div>
+    <div class="error" ></div>
     <!-- Tên đăng nhập hoặc mật khẩu sai! -->
     <a href="register.aspx">Bạn chưa có tài khoản? Hãy tạo Tài khoản mới!</a>
   </div>
@@ -43,7 +43,8 @@ Inherits="BTL_Web_TinTuc_NangCao.login" %>
       } else if (mkDN.value.trim() === "") {
         alert("Mật khẩu không được trống");
       } else {
-        formDN.submit();
+          //formDN.submit();
+          window.location.assign("login.aspx?name=" + tkDN.value + "&pass=" + mkDN.value + "");
       }
     });
   </script>
