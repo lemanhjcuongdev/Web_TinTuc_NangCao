@@ -11,10 +11,10 @@ namespace BTL_Web_TinTuc_NangCao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*HttpCookie user = new HttpCookie("user");
-            user.Value = "adadad";
-            user.Expires = DateTime.Now.AddSeconds(10);
-            HttpContext.Current.Response.Cookies.Add(user);*/
+            string htmls = "Hiện có ";
+            htmls += Application["numberWrong"].ToString();
+            htmls += " lượt truy cập";
+            isOnline.InnerHtml = htmls;
         }
     }
 }

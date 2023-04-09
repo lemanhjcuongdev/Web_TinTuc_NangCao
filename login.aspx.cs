@@ -39,7 +39,7 @@ namespace BTL_Web_TinTuc_NangCao
                                     user.Value = name;
                                     user.Expires = DateTime.Now.AddMinutes(20);
                                     HttpContext.Current.Response.Cookies.Add(user);
-
+                                    Application["numberWrong"] = (int)Application["numberWrong"] + 1;
                                     Response.Redirect("trangchu.aspx");
                                     }
                                     else
@@ -54,6 +54,10 @@ namespace BTL_Web_TinTuc_NangCao
                     {
                         Response.Write("ERORR:" + ex.Message);
                     }
+                }
+                else
+                {
+                    error.InnerHtml = "Thông tin đăng nhập không được trống !";
                 }
             }
         }
