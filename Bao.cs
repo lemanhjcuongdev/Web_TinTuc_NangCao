@@ -20,8 +20,10 @@ namespace BTL_Web_TinTuc_NangCao
         public string theloai { get; set; }
         public int soluotxem { get; set; }
 
+
         public Bao()
         {
+            ngay = ngayphathanh.ToString("MM-dd-yyyy");
         }
 
         string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString.ToString();
@@ -70,8 +72,6 @@ namespace BTL_Web_TinTuc_NangCao
                             bao.ngayphathanh = DateTime.Parse(row["dNgayPhatHanh"].ToString());
                             bao.ngay = bao.ngayphathanh.ToString("MM-dd-yyyy");
                         }
-                            
-
                     }
                 }
             }
