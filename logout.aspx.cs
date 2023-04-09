@@ -15,7 +15,10 @@ namespace BTL_Web_TinTuc_NangCao
             HttpCookie cookie = new HttpCookie("user");
             cookie.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Add(cookie);
-
+            if (int.Parse(Application["numberWrong"].ToString()) > 0)
+            {
+                Application["numberWrong"] = (int)Application["numberWrong"] - 1;
+            }
             Response.Redirect("trangchu.aspx");
         }
     }
