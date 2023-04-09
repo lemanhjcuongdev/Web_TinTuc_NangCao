@@ -143,6 +143,7 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="dangbai.aspx" />
     <Content Include="danhsachdaluu.aspx" />
+    <Content Include="ignore.png" />
     <Content Include="obj\Debug\BTL_Web_TinTuc_NangCao.csproj.AssemblyReference.cache" />
     <Content Include="obj\Debug\BTL_Web_TinTuc_NangCao.csproj.CopyComplete" />
     <Content Include="obj\Debug\BTL_Web_TinTuc_NangCao.csproj.CoreCompileInputs.cache" />
@@ -150,6 +151,12 @@
     <Content Include="obj\Debug\BTL_Web_TinTuc_NangCao.dll" />
     <Content Include="obj\Debug\BTL_Web_TinTuc_NangCao.pdb" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="packages\jQuery.1.4.4\Content\Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="packages\jQuery.1.4.4\Content\Scripts\jquery-1.4.4.js" />
+    <Content Include="packages\jQuery.1.4.4\Content\Scripts\jquery-1.4.4.min.js" />
+    <None Include="packages\jQuery.Validation.1.19.5\Content\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="packages\jQuery.Validation.1.19.5\Content\Scripts\jquery.validate.js" />
+    <Content Include="packages\jQuery.Validation.1.19.5\Content\Scripts\jquery.validate.min.js" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\.signature.p7s" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
@@ -245,9 +252,34 @@
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe.config" />
     <Content Include="Global.asax" />
     <Content Include="logout.aspx" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\net35\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\net40\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\net6.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\net6.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\netstandard1.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\netstandard1.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\netstandard1.3\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\netstandard1.3\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\netstandard2.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\netstandard2.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\packageIcon.png" />
     <Content Include="register.aspx" />
     <Content Include="login.aspx" />
     <Content Include="assets\anh11.jpg" />
+    <Content Include="packages\jQuery.1.4.4\.signature.p7s" />
+    <Content Include="packages\jQuery.1.4.4\jQuery.1.4.4.nupkg" />
+    <Content Include="packages\jQuery.Validation.1.19.5\.signature.p7s" />
+    <Content Include="packages\jQuery.Validation.1.19.5\jQuery.Validation.1.19.5.nupkg" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\.signature.p7s" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\LICENSE.md" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\Newtonsoft.Json.13.0.3.nupkg" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\README.md" />
     <None Include="Scripts\jquery-1.4.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.4.js" />
     <Content Include="Scripts\jquery-1.4.4.min.js" />
@@ -278,6 +310,13 @@
     <Content Include="trangchu.aspx" />
     <Content Include="trangconchitiet.aspx" />
     <Content Include="WelcomePage.aspx" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ajaxDangBao.aspx.cs">
@@ -368,20 +407,11 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Template.Master" />
-    <Content Include="Web.config" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".vs\BTL_Web_TinTuc_NangCao\v16\" />
     <Folder Include=".vs\Web_TinTuc_NangCao\v16\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="src\assets\images\" />
-    <Folder Include="src\assets\js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

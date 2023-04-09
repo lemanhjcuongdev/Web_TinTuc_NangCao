@@ -45,6 +45,26 @@ namespace BTL_Web_TinTuc_NangCao
             }
         }
 
+        public DataTable getTheLoaiBao_Ten(string username)
+        {
+
+            using (SqlConnection connection = new SqlConnection(constr))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand("sp_getTheLoaiBao_Ten", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@tentheloai ", username);
+                    using (SqlDataAdapter sqlData = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sqlData.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
         public Bao getBaoID(int id)
         {
             Bao bao = new Bao();
@@ -155,6 +175,26 @@ namespace BTL_Web_TinTuc_NangCao
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@stentaikhoan ",username);
+                    using (SqlDataAdapter sqlData = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sqlData.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
+        public DataTable getBaodaluu_User(string username)
+        {
+
+            using (SqlConnection connection = new SqlConnection(constr))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand("sp_getBaodaluu_User", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@stenUser ", username);
                     using (SqlDataAdapter sqlData = new SqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();

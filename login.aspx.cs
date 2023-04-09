@@ -17,13 +17,16 @@ namespace BTL_Web_TinTuc_NangCao
         {
             if (!IsPostBack)
             {
-                string name = Request.QueryString["name"];
-                string pass = Request.QueryString["pass"];
-
+                // lấy tk mk khi người dùng click đăng nhập
+                string name = Request.Form["inputTK"];
+                string pass = Request.Form["inputMK"];
+                // check null hay không
                 if (name!=null && pass != null)
                 {
+                    // không null
                     try
                     {
+                        // select xem trong cơ sở dữ liệu nếu có tồn tại thì get ra
                             using (SqlConnection cnn = new SqlConnection(cnnstr))
                             {
                                 using (SqlCommand cmd = new SqlCommand())
@@ -42,6 +45,7 @@ namespace BTL_Web_TinTuc_NangCao
                                     Application["numberWrong"] = (int)Application["numberWrong"] + 1;
                                     Response.Redirect("trangchu.aspx");
                                     }
+                                    // nếu không sẽ thông báo 
                                     else
                                     {
                                      error.InnerHtml = "thông tin đăng nhập không chính xác!";

@@ -1,4 +1,4 @@
-* {
+    * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -108,6 +108,10 @@ h2 + div.content {
 .content .item:nth-child(n+6) a {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+.content .item:nth-child(n+6) a .label{
+    flex: 1;
 }
 .content .item:nth-child(n+6) img {
   width: 20%;

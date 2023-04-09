@@ -36,7 +36,7 @@ Inherits="BTL_Web_TinTuc_NangCao.login" %>
 
     const formDN = document.querySelector("#formdn");
 
-    btnDN.addEventListener("click", function (e) {
+   /* btnDN.addEventListener("click", function (e) {
       e.preventDefault();
       if (tkDN.value.trim() === "") {
         alert("Tài khoản không được trống");
@@ -46,6 +46,6 @@ Inherits="BTL_Web_TinTuc_NangCao.login" %>
           //formDN.submit();
           window.location.assign("login.aspx?name=" + tkDN.value + "&pass=" + mkDN.value + "");
       }
-    });
+    });*/
   </script>
 </asp:Content>

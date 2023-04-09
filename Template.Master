@@ -45,14 +45,14 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
             <a
               class="link"
               href="theloai.aspx?id=1"
-              title="Khoa học & Công nghệ"
+              title="Giải trí"
             >
-              <p>Khoa học & Công nghệ</p>
+              <p>Giải trí</p>
             </a>
           </li>
           <li>
-            <a class="link" href="theloai.aspx?id=2" title="Xã hội">
-              <p>Xã hội</p>
+            <a class="link" href="theloai.aspx?id=2" title="Đời sống">
+              <p>Đời sống</p>
             </a>
           </li>
           <li>
