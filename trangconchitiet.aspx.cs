@@ -15,10 +15,11 @@ namespace BTL_Web_TinTuc_NangCao
         {
             if (int.Parse(Request.QueryString["id"]) != 0)
             {
-
                 Bao bao = new Bao();
+                bao.UpSoluotxem(int.Parse(Request.QueryString["id"]));
                 bao = bao.getBaoID(int.Parse(Request.QueryString["id"]));
-                bao.theloai = bao.getTheloai(bao.idBao);
+                bao.theloai = bao.getTheloai(bao.idTheLoai);
+                // bao.theloai = bao.getTheloai(bao.idBao);
                 List<Bao> lst = new List<Bao>();
                 lst.Add(bao);
                 Repeater1.DataSource = lst;

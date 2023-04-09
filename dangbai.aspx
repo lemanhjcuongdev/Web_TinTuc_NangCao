@@ -241,6 +241,9 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
       }
 
       function actionDelete(id) {
+          if (!confirm("Bạn muốn xóa chứ ?")) {
+              return;
+          }
           const btnSubmit = document.querySelector("#submit");
           var formData = new FormData();
           formData.append("delete", id);

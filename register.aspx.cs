@@ -52,6 +52,28 @@ namespace BTL_Web_TinTuc_NangCao
                                         user.Expires = DateTime.Now.AddSeconds(30);
                                         HttpContext.Current.Response.Cookies.Add(user);
 
+                                    cmd.CommandText = "insert into tblUser(sTenTaiKhoan,sMatKhau) values('"+ name + "','"+ pass + "')";
+                                    cmd.ExecuteNonQuery();
+                                    Application["numberWrong"] = (int)Application["numberWrong"] + 1;
+                                    Response.Redirect("trangchu.aspx");
+                                }
+                                else
+                                {
+                                    errorMessage.InnerHtml = "tài khoản đã tồn tại!";
+                                }
+                                cnn.Close();
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write("ERORR:" + ex.Message);
+                    }
+                }
+            }
+        }
+    }
+}
                                         cmd.CommandText = "insert into tblUser(sTenTaiKhoan,sMatKhau) values('" + name + "','" + pass + "')";
                                         cmd.ExecuteNonQuery();
                                         Response.Redirect("trangchu.aspx");

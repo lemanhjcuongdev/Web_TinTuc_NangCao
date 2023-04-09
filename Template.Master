@@ -160,6 +160,9 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
       
     
     <footer>
+        <div style="background:yellow; text-align:center">
+            <span id="isOnline" runat="server"></span>
+        </div>
       <ul class="child_footer1">
         <li>
           <h1 class="text_logo">NewNews</h1>

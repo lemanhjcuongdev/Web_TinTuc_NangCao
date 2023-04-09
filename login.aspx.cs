@@ -40,9 +40,9 @@ namespace BTL_Web_TinTuc_NangCao
                                     {
                                     HttpCookie user = new HttpCookie("user");
                                     user.Value = name;
-                                    user.Expires = DateTime.Now.AddSeconds(30);
+                                    user.Expires = DateTime.Now.AddMinutes(20);
                                     HttpContext.Current.Response.Cookies.Add(user);
-
+                                    Application["numberWrong"] = (int)Application["numberWrong"] + 1;
                                     Response.Redirect("trangchu.aspx");
                                     }
                                     // nếu không sẽ thông báo 
@@ -58,6 +58,10 @@ namespace BTL_Web_TinTuc_NangCao
                     {
                         Response.Write("ERORR:" + ex.Message);
                     }
+                }
+                else
+                {
+                    error.InnerHtml = "Thông tin đăng nhập không được trống !";
                 }
             }
         }

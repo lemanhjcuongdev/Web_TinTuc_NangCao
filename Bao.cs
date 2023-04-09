@@ -18,6 +18,7 @@ namespace BTL_Web_TinTuc_NangCao
         public string tacgia { get; set; }
         public int idTheLoai { get; set; }
         public string theloai { get; set; }
+        public int soluotxem { get; set; }
 
         public Bao()
         {
@@ -85,6 +86,9 @@ namespace BTL_Web_TinTuc_NangCao
                             bao.noidung = row["sNoiDung"].ToString();
                             bao.idTheLoai = int.Parse(row["iMaTheLoai"].ToString());
                             bao.url = row["sURLanh"].ToString();
+                            bao.soluotxem = int.Parse(row["isoluotxem"].ToString());
+                            bao.ngayphathanh = DateTime.Parse(row["dNgayPhatHanh"].ToString());
+                            bao.ngay = bao.ngayphathanh.ToString("MM-dd-yyyy");
                         }
                             
 
@@ -271,6 +275,28 @@ namespace BTL_Web_TinTuc_NangCao
             }
         }
 
+        public void UpSoluotxem(int id)
+        {
 
+            using (SqlConnection connection = new SqlConnection(constr))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand("sp_UPluotxem", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", id);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        
+                        return ;
+                    }
+                    else
+                    {
+                        return ;
+                    }
+                }
+            }
+        }
     }
 }

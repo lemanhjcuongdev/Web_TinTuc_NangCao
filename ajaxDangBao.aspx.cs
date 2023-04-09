@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json;
 using System.Web.Script.Serialization ;
+using System.IO;
 
 namespace BTL_Web_TinTuc_NangCao
 {
@@ -13,11 +14,10 @@ namespace BTL_Web_TinTuc_NangCao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             Bao bao = new Bao();
-            if (Request.HttpMethod == "POST")
-            {
-                // lấy giá trị truyền vào input
-                if (Request.Form["id"] != null & Request.Form["inputTitle"]==null)
+            // lấy giá trị truyền vào input
+            if (Request.Form["id"] != null & Request.Form["inputTitle"]==null)
                 {
                     bao.idBao = int.Parse(Request.Form["id"]);
                     bao = bao.getBaoID(bao.idBao);
@@ -32,6 +32,7 @@ namespace BTL_Web_TinTuc_NangCao
                 if(Request.Form["delete"] != null)
                 {
                     int id =  int.Parse(Request.Form["delete"]);
+                    bao = bao.getBaoID(id);
                     if (bao.removeBao(id))
                     {
                         Response.Flush(); 
@@ -47,7 +48,7 @@ namespace BTL_Web_TinTuc_NangCao
                         return;
                     }
                 }
-                bao.tacgia = "Hồng Quân";
+                bao.tacgia = "admin";
                 bao.ngayphathanh = DateTime.Now;
                 bao.ngay = bao.ngayphathanh.ToString("MM-dd-yyyy");
                 bao.tenbao = Request.Form["inputTitle"];
@@ -59,9 +60,9 @@ namespace BTL_Web_TinTuc_NangCao
                 string fileName = "anh10.jpg";
                 string pathToCheck = Server.MapPath("~/" + saveDir + fileName);
                 string temptName = "";
-                if (System.IO.File.Exists(pathToCheck))
+                if (File.Exists(pathToCheck))
                 {
-                    while (System.IO.File.Exists(pathToCheck))
+                    while (File.Exists(pathToCheck))
                     {
                         temptName = "anh" + counter.ToString() + ".jpg";
                         pathToCheck = Server.MapPath("~/" + saveDir + temptName);
@@ -111,4 +112,3 @@ namespace BTL_Web_TinTuc_NangCao
             }
         }
     }
-}
