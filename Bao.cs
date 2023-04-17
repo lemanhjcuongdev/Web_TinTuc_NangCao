@@ -30,7 +30,6 @@ namespace BTL_Web_TinTuc_NangCao
 
         public DataTable getAllBao()
         {
-            
             using (SqlConnection connection = new SqlConnection(constr))
             {
                 connection.Open();

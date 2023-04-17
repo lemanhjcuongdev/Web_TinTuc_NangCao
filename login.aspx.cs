@@ -29,18 +29,19 @@ namespace BTL_Web_TinTuc_NangCao
                         // select xem trong cơ sở dữ liệu nếu có tồn tại thì get ra
                             using (SqlConnection cnn = new SqlConnection(cnnstr))
                             {
-                                using (SqlCommand cmd = new SqlCommand())
+                                using (SqlCommand cmd = new SqlCommand("getUser",cnn))
                                 {
                                     cmd.Connection = cnn;
                                     cnn.Open();
-                                    cmd.CommandType = CommandType.Text;
-                                    cmd.CommandText = "select * from tblUser where sTenTaiKhoan = '" + name + "'and sMatKhau='" + pass + "'";
-                                    SqlDataReader reader = cmd.ExecuteReader();
+                                    cmd.CommandType = CommandType.StoredProcedure;
+                                    cmd.Parameters.AddWithValue("@name", name);
+                                    cmd.Parameters.AddWithValue("@pass", pass);
+                                SqlDataReader reader = cmd.ExecuteReader();
                                     if (reader.Read())
                                     {
                                     HttpCookie user = new HttpCookie("user");
                                     user.Value = name;
-                                    user.Expires = DateTime.Now.AddMinutes(20);
+                                    user.Expires = DateTime.Now.AddSeconds(20);
                                     HttpContext.Current.Response.Cookies.Add(user);
                                     Application["numberWrong"] = (int)Application["numberWrong"] + 1;
                                     Response.Redirect("trangchu.aspx");
