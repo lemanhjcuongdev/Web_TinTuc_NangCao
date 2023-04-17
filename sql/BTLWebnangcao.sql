@@ -107,3 +107,53 @@ begin
 	set isoluotxem = isoluotxem +1 
 	where iMaBao = @id
 end
+
+
+-- vũ
+-- lấy thông tin user
+create proc getUser
+@name varchar(255),@pass varchar(255)
+as
+begin
+	select * from tblUser where sTenTaiKhoan = @name and sMatKhau= @pass 
+end
+
+go	
+-- thêm user
+create proc insertUser
+@name varchar(255),@pass varchar(255)
+as
+begin
+	insert into tblUser(sTenTaiKhoan,sMatKhau) values(@name,@pass)
+end
+go
+-- lấy báo đã lưu theo user
+create proc sp_getBaodaluu_User @stenUser nvarchar(255)
+as
+begin
+	select sTenBao ,sNoiDung,dNgayPhatHanh,sURLAnh,sTenTacGia,sTenTheLoai from tblBao inner join tblTheloaiBao
+	on tblBao.iMaTheLoai = tblTheloaiBao.iMaTheLoai
+	inner join tblBaoDaLuu on tblBaoDaLuu.iMaBao = tblBao.iMaBao
+	inner join tblUser on tblBaoDaLuu.sTenTaiKhoan = tblUser.sTenTaiKhoan
+	where tblUser.sTenTaiKhoan = @stenUser 
+end
+
+go
+
+-- lấy thông tin báo theo thể loại (tên báo , nội dung , ngày phát hành , url ảnh , tên tác giả) 
+-- với điều kiện là tên thể loại truyền vào
+-- proc
+alter proc sp_getTheLoaiBao_Ten
+@tentheloai nvarchar(255)
+as
+begin
+	select sTenBao ,sNoiDung,dNgayPhatHanh,sURLAnh,sTenTacGia,sTenTheLoai
+	from tblBao
+	inner join tblTheloaiBao
+	on tblBao.iMaTheLoai = tblTheloaiBao.iMaTheLoai
+	where sTenTheLoai like N'%'+ @tentheloai +'%'
+end
+
+exec sp_getTheLoaiBao_Ten N'Đời sống' 
+
+-- end vũ

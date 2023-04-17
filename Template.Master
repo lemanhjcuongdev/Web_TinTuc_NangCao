@@ -197,36 +197,15 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
                 document.getElementById("login").style.display = "none";
             }
             else if (document.cookie.split('=')[1] != "admin") {
-                document.getElementById("name").innerHTML = document.cookie.split('=')[1];
+               document.getElementById("name").innerHTML = document.cookie.split('=')[1];
                 document.getElementById("admin").style.display = "none";
                 document.getElementById("login").style.display = "none";
             }
         }
-
         else {
             document.getElementById("login").style.display = "block";
             document.getElementById("nav").style.display = "none";
         }
-
-      /*const publishBtn = document.querySelector(".publish");
-      const logoutBtn = document.querySelector(".logout");
-      const personalBtn = document.querySelector(".personal");
-      const savedBtn = document.querySelector(".saved");
-      console.log(savedBtn);
-
-      const isLoggedIn = true; // ĐANG FIX CỨNG TRẠNG THÁI ĐĂNG NHẬP
-
-      if (isLoggedIn) {
-        publishBtn.classList.add("active");
-        logoutBtn.classList.add("active");
-        // personalBtn.classList.remove("active");
-        savedBtn.classList.add("active");
-      } else {
-        publishBtn.classList.remove("active");
-        logoutBtn.classList.remove("active");
-        // personalBtn.classList.add("active");
-        savedBtn.classList.remove("active");
-      }*/
     </script>
   </body>
 </html>

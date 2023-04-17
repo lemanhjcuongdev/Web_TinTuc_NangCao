@@ -37,12 +37,13 @@ namespace BTL_Web_TinTuc_NangCao
                         {
                             using (SqlConnection cnn = new SqlConnection(cnnstr))
                             {
-                                using (SqlCommand cmd = new SqlCommand())
+                                using (SqlCommand cmd = new SqlCommand("getUser", cnn))
                                 {
                                     cmd.Connection = cnn;
                                     cnn.Open();
-                                    cmd.CommandType = CommandType.Text;
-                                    cmd.CommandText = "select * from tblUser where sTenTaiKhoan = '" + name + "'and sMatKhau='" + pass + "'";
+                                    cmd.CommandType = CommandType.StoredProcedure;
+                                    cmd.Parameters.AddWithValue("@name",name);
+                                    cmd.Parameters.AddWithValue("@pass", pass);
                                     SqlDataReader reader = cmd.ExecuteReader();
                                     if (!reader.Read())
                                     {
@@ -51,11 +52,15 @@ namespace BTL_Web_TinTuc_NangCao
                                         user.Value = name;
                                         user.Expires = DateTime.Now.AddSeconds(30);
                                         HttpContext.Current.Response.Cookies.Add(user);
-
-                                        cmd.CommandText = "insert into tblUser(sTenTaiKhoan,sMatKhau) values('" + name + "','" + pass + "')";
-                                        cmd.ExecuteNonQuery();
-                                        Application["numberWrong"] = (int)Application["numberWrong"] + 1;
-                                        Response.Redirect("trangchu.aspx");
+                                        using (SqlCommand cmda = new SqlCommand("insertUser",cnn))
+                                        {
+                                            cmda.CommandType = CommandType.StoredProcedure;
+                                            cmda.Parameters.AddWithValue("@name", name);
+                                            cmda.Parameters.AddWithValue("@pass", pass);
+                                            cmda.ExecuteNonQuery();
+                                            Application["numberWrong"] = (int)Application["numberWrong"] + 1;
+                                            Response.Redirect("trangchu.aspx");
+                                        }
                                     }
                                     else
                                     {
