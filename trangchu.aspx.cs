@@ -11,7 +11,9 @@ namespace BTL_Web_TinTuc_NangCao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            Bao bao = new Bao();
+            rptBaoTrangChu.DataSource = bao.getAllBao();
+            rptBaoTrangChu.DataBind();
         }
     }
 }

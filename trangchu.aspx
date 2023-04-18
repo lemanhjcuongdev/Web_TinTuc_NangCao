@@ -12,175 +12,35 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
   />
   <h2>Báo mới nhất hôm nay cho bạn</h2>
   <div class="content">
-    <section class="item" id="abc">
-      <a href="#">
-        <img
-          src="https://wallpapers.ispazio.net/wp-content/uploads/2021/04/hello-iphone-1.png"
-        />
-        <div class="information">
-          <div class="label">
-            <p class="title">
-              TITLE
-              TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETIdfasdasdasdasdđâsdasdasdsa
-            </p>
-            <p class="sub_title">
-              SUB_TITLE TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLE
-            </p>
-            <section class="description">
-              <p class="time">TIME</p>
-              <p class="category">CATEGORY</p>
+    <asp:Repeater ID="rptBaoTrangChu" runat="server">
+        <ItemTemplate>
+            <section class="item" id="abc">
+              <a href="trangconchitiet.aspx?id=<%# Eval("iMaBao") %>">
+                <img
+                  src="<%# Eval("sURLAnh") %>""
+                />
+                <div class="information">
+                  <div class="label">
+                    <p class="title">
+                       <%#Eval("sTenBao") %>
+                    </p>
+                    <p class="sub_title">
+                      <%# Eval("sNoiDung").ToString().Substring(0, 100) %> <em>...Xem thêm</em>
+                    </p>
+                    <section class="description">
+                      <p class="time"><%#Eval("dNgayPhatHanh") %></p>
+                      <p class="category"><%#Eval("sTenTheLoai") %></p>
+                    </section>
+                  </div>
+                   <%-- icon click lưu báo--%>
+                  <i class="fa-regular fa-bookmark active"></i>
+                  <i class="fa-solid fa-bookmark new"></i>
+                </div>
+              </a>
             </section>
-          </div>
-           <%-- icon click lưu báo--%>
-          <i class="fa-regular fa-bookmark active"></i>
-          <i class="fa-solid fa-bookmark new"></i>
-        </div>
-      </a>
-    </section>
-    <section class="item" id="abc">
-      <a href="#">
-        <img
-          src="https://wallpapers.ispazio.net/wp-content/uploads/2021/04/hello-iphone-1.png"
-        />
-        <div class="information">
-          <div class="label">
-            <p class="title">
-              TITLE
-              TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETIdfasdasdasdasdđâsdasdasdsa
-            </p>
-            <p class="sub_title">
-              SUB_TITLE TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLE
-            </p>
-            <section class="description">
-              <p class="time">TIME</p>
-              <p class="category">CATEGORY</p>
-            </section>
-          </div>
-          <i class="fa-regular fa-bookmark active"></i>
-          <i class="fa-solid fa-bookmark new"></i>
-        </div>
-      </a>
-    </section>
-    <section class="item" id="abc">
-      <a href="#">
-        <img
-          src="https://wallpapers.ispazio.net/wp-content/uploads/2021/04/hello-iphone-1.png"
-        />
-        <div class="information">
-          <div class="label">
-            <p class="title">
-              TITLE
-              TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETIdfasdasdasdasdđâsdasdasdsa
-            </p>
-            <p class="sub_title">
-              SUB_TITLE TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLE
-            </p>
-            <section class="description">
-              <p class="time">TIME</p>
-              <p class="category">CATEGORY</p>
-            </section>
-          </div>
-          <i class="fa-regular fa-bookmark active"></i>
-          <i class="fa-solid fa-bookmark new"></i>
-        </div>
-      </a>
-    </section>
-    <section class="item" id="abc">
-      <a href="#">
-        <img
-          src="https://wallpapers.ispazio.net/wp-content/uploads/2021/04/hello-iphone-1.png"
-        />
-        <div class="information">
-          <div class="label">
-            <p class="title">
-              TITLE
-              TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETIdfasdasdasdasdđâsdasdasdsa
-            </p>
-            <p class="sub_title">
-              SUB_TITLE TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLE
-            </p>
-            <section class="description">
-              <p class="time">TIME</p>
-              <p class="category">CATEGORY</p>
-            </section>
-          </div>
-          <i class="fa-regular fa-bookmark active"></i>
-          <i class="fa-solid fa-bookmark new"></i>
-        </div>
-      </a>
-    </section>
-    <section class="item" id="abc">
-      <a href="#">
-        <img
-          src="https://wallpapers.ispazio.net/wp-content/uploads/2021/04/hello-iphone-1.png"
-        />
-        <div class="information">
-          <div class="label">
-            <p class="title">
-              TITLE
-              TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETIdfasdasdasdasdđâsdasdasdsa
-            </p>
-            <p class="sub_title">
-              SUB_TITLE TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLE
-            </p>
-            <section class="description">
-              <p class="time">TIME</p>
-              <p class="category">CATEGORY</p>
-            </section>
-          </div>
-          <i class="fa-regular fa-bookmark active"></i>
-          <i class="fa-solid fa-bookmark new"></i>
-        </div>
-      </a>
-    </section>
-    <section class="item" id="abc">
-      <a href="#">
-        <img
-          src="https://wallpapers.ispazio.net/wp-content/uploads/2021/04/hello-iphone-1.png"
-        />
-        <div class="information">
-          <div class="label">
-            <p class="title">
-              TITLE
-              TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETIdfasdasdasdasdđâsdasdasdsa
-            </p>
-            <p class="sub_title">
-              SUB_TITLE TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLE
-            </p>
-            <section class="description">
-              <p class="time">TIME</p>
-              <p class="category">CATEGORY</p>
-            </section>
-          </div>
-          <i class="fa-regular fa-bookmark active"></i>
-          <i class="fa-solid fa-bookmark new"></i>
-        </div>
-      </a>
-    </section>
-    <section class="item" id="abc">
-      <a href="#">
-        <img
-          src="https://wallpapers.ispazio.net/wp-content/uploads/2021/04/hello-iphone-1.png"
-        />
-        <div class="information">
-          <div class="label">
-            <p class="title">
-              TITLE
-              TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETITLETIdfasdasdasdasdđâsdasdasdsa
-            </p>
-            <p class="sub_title">
-              SUB_TITLE TITLETITLETITLETITLETITLETITLETITLETITLETITLETITLE
-            </p>
-            <section class="description">
-              <p class="time">TIME</p>
-              <p class="category">CATEGORY</p>
-            </section>
-          </div>
-          <i class="fa-regular fa-bookmark active"></i>
-          <i class="fa-solid fa-bookmark new"></i>
-        </div>
-      </a>
-    </section>
+        </ItemTemplate>
+    </asp:Repeater>
+    
   </div>
   <script>
     //GIẢ ĐỊNH NÚT ĐÃ LƯU
