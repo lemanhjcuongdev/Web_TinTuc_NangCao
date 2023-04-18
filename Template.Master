@@ -36,11 +36,11 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
               <h1>NewNews</h1>
             </a>
           </li>
-          <li>
+          <%--<li>
             <a class="link" href="trangchu.aspx" title="Trang chủ">
               <p>Trang chủ</p>
             </a>
-          </li>
+          </li>--%>
           <li>
             <a
               class="link"
