@@ -14,7 +14,7 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
   <div class="content">
     <asp:Repeater ID="rptBaoTrangChu" runat="server">
         <ItemTemplate>
-            <section class="item" id="abc">
+            <section class="item" data-id="<%# Eval("iMaBao") %>">
               <a href="trangconchitiet.aspx?id=<%# Eval("iMaBao") %>">
                 <img
                   src="<%# Eval("sURLAnh") %>""
@@ -33,27 +33,56 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
                     </section>
                   </div>
                    <%-- icon click lưu báo--%>
-                  <i class="fa-regular fa-bookmark active"></i>
-                  <i class="fa-solid fa-bookmark new"></i>
+                  <i data-value="<%# IsSaved(Eval("iMaBao").ToString()) %>" class="fa-regular fa-bookmark" title="Thêm hoặc xóa bài báo trong danh sách đọc sau"></i>
                 </div>
               </a>
             </section>
         </ItemTemplate>
     </asp:Repeater>
-    
+
   </div>
   <script>
-    //GIẢ ĐỊNH NÚT ĐÃ LƯU
-    const notSaveBtn = document.querySelectorAll(".fa-regular.fa-bookmark");
-    const haveSavedBtn = document.querySelectorAll(".fa-solid.fa-bookmark.new");
+      const notSaveBtns = document.querySelectorAll(".fa-regular"); //lấy tất cả button chưa save
 
-    notSaveBtn.addEventListener("click", () => {
-      notSaveBtn.classList.remove("active");
-        haveSavedBtn.classList.add("active");
-    });
-    haveSavedBtn.addEventListener("click", () => {
-      notSaveBtn.classList.add("active");
-      haveSavedBtn.classList.remove("active");
-    });
+      //check đăng nhập
+      let isLoggedIn = document.cookie.toString().slice(0,4)=== "user"
+
+        notSaveBtns.forEach((btn)=>{
+          //duyệt mảng các nút save
+        let saved = btn.dataset.value === "True" ? true : false ;
+        if(saved){
+            btn.classList.remove("fa-regular")
+            btn.classList.add("fa-solid")
+          }
+          else{
+            btn.classList.remove("fa-solid")
+            btn.classList.add("fa-regular")
+          }
+
+        btn.addEventListener("click",(e)=>{
+          e.preventDefault();
+          //lấy id bài báo khi click icon lưu
+          const id = e.target.closest(".item").dataset.id
+          if(isLoggedIn){
+          saved = !saved
+
+          if(saved){
+            btn.classList.remove("fa-regular")
+            btn.classList.add("fa-solid")
+          }
+          else{
+            btn.classList.remove("fa-solid")
+            btn.classList.add("fa-regular")
+          }
+
+        //call AJAX thêm vào hoặc xóa khỏi danh sách xem sau
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", "trangchu.aspx?id="+ id, true)
+          xhr.send()
+          } else{
+              window.location.href = "login.aspx"
+          }
+        })
+      })
   </script>
 </asp:Content>
