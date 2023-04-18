@@ -41,12 +41,12 @@ namespace BTL_Web_TinTuc_NangCao
                                     {
                                     HttpCookie user = new HttpCookie("user");
                                     user.Value = name;
-                                    user.Expires = DateTime.Now.AddSeconds(20);
+                                    user.Expires = DateTime.Now.AddMinutes(20);
                                     HttpContext.Current.Response.Cookies.Add(user);
                                     Application["numberWrong"] = (int)Application["numberWrong"] + 1;
                                     Response.Redirect("trangchu.aspx");
                                     }
-                                    // nếu không sẽ thông báo 
+                                    // nếu không sẽ thông báo
                                     else
                                     {
                                      error.InnerHtml = "thông tin đăng nhập không chính xác!";
@@ -54,7 +54,7 @@ namespace BTL_Web_TinTuc_NangCao
                                     cnn.Close();
                                 }
                             }
-                    }   
+                    }
                     catch (Exception ex)
                     {
                         Response.Write("ERORR:" + ex.Message);

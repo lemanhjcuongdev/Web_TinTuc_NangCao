@@ -140,7 +140,7 @@ begin
 	inner join tblUser on tblBaoDaLuu.sTenTaiKhoan = tblUser.sTenTaiKhoan
 	where tblUser.sTenTaiKhoan = @stenUser 
 end
-
+exec sp_getBaodaluu_User 'admin'
 go
 
 -- lấy thông tin báo theo thể loại (tên báo , nội dung , ngày phát hành , url ảnh , tên tác giả) 
@@ -540,3 +540,32 @@ Hội nghị đại biểu Quốc hội chuyên trách diễn ra trong 3 ngày, 
 N'Ngọc Tuấn',
 7
 )
+go
+create proc pr_updateBaoDaLuu_user
+@id int,
+@username varchar(255)
+as
+begin
+	if exists (select 1 from tblBaoDaLuu where iMaBao = @id and sTenTaiKhoan = @username)
+	begin
+		delete from tblBaoDaLuu where iMaBao = @id and sTenTaiKhoan = @username;
+	end
+	else
+	begin
+		insert into tblBaoDaLuu
+		values(@id, @username)
+	end
+end
+go
+exec pr_updateBaoDaLuu_user 3,'admin'
+go
+alter proc sp_getBaodaluu_User 
+@stenUser nvarchar(255)
+as
+begin
+	select tblBao.iMaBao, sTenBao ,sNoiDung,dNgayPhatHanh,sURLAnh,sTenTacGia,sTenTheLoai from tblBao inner join tblTheloaiBao
+	on tblBao.iMaTheLoai = tblTheloaiBao.iMaTheLoai
+	inner join tblBaoDaLuu on tblBaoDaLuu.iMaBao = tblBao.iMaBao
+	inner join tblUser on tblBaoDaLuu.sTenTaiKhoan = tblUser.sTenTaiKhoan
+	where tblUser.sTenTaiKhoan = @stenUser 
+end

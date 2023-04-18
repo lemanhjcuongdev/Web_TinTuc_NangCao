@@ -204,6 +204,21 @@ namespace BTL_Web_TinTuc_NangCao
             }
         }
 
+        public void updateBaoDaLuu_User(int id, string username)
+        {
+            using (SqlConnection connection = new SqlConnection(constr))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand("pr_updateBaoDaLuu_user", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@username ", username);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         public DataTable getAllTheLoaiBao()
         {
 
