@@ -33,7 +33,7 @@ Inherits="BTL_Web_TinTuc_NangCao.danhsachdaluu" %>
           </p>
         </div>
         <section class="description">
-          <p class="time"><%#Eval("dNgayPhatHanh") %></p>
+          <p class="time"><%#Eval("ngay") %></p>
           <p class="category"><%#Eval("sTenTheLoai") %></p>
         </section>
       </a>
