@@ -589,3 +589,16 @@ SELECT
         COLLATIONPROPERTY(name, 'ComparisonStyle') as ComparisonStyle,
         description
     FROM ::fn_helpcollations()
+
+--Cường sửa proc của Vũ
+go
+alter proc sp_getTheLoaiBao_Ten
+@tentheloai nvarchar(255)
+as
+begin
+	select iMaBao, sTenBao ,sNoiDung,dNgayPhatHanh,sURLAnh,sTenTacGia,sTenTheLoai
+	from tblBao
+	inner join tblTheloaiBao
+	on tblBao.iMaTheLoai = tblTheloaiBao.iMaTheLoai
+	where sTenTheLoai like N'%'+ @tentheloai +'%'
+end
