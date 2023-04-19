@@ -28,7 +28,7 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
                       <%# Eval("sNoiDung").ToString().Substring(0, 100) %> <em>...Xem thêm</em>
                     </p>
                     <section class="description">
-                      <p class="time"><%#Eval("dNgayPhatHanh") %></p>
+                      <p class="time"><%#Eval("ngay") %></p>
                       <p class="category"><%#Eval("sTenTheLoai") %></p>
                     </section>
                   </div>

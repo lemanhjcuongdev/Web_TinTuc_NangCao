@@ -82,13 +82,13 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
             <button class="deleteBtn" onclick="actionDelete(<%#Eval("iMaBao") %>)()">Xóa</button></td>
             
         </tr>--%>
-        <tr id="<%#Eval("idBao") %>">
-            <td><a href="trangconchitiet.aspx?id=<%#Eval("idBao") %>"> <b><%#Eval("tenbao") %></b></a></td>
-            <td><%#Eval("theloai") %></td>
+        <tr id="<%#Eval("iMaBao") %>">
+            <td><a href="trangconchitiet.aspx?id=<%#Eval("iMaBao") %>"> <b><%#Eval("sTenbao") %></b></a></td>
+            <td><%#Eval("sTenTheLoai") %></td>
             <td><%#Eval("ngay") %></td>
-            <td><img alt="<%# Eval("tenbao") %>" src="<%#Eval("url") %>" /> </td>
-            <td><button class="editBtn" onclick="actionAlter(<%#Eval("idBao") %>)()" >Sửa</button>
-            <button class="deleteBtn" onclick="actionDelete(<%#Eval("idBao") %>)()">Xóa</button></td>
+            <td><img alt="<%# Eval("stenbao") %>" src="<%#Eval("sURLAnh") %>" /> </td>
+            <td><button class="editBtn" onclick="actionAlter(<%#Eval("iMaBao") %>)()" >Sửa</button>
+            <button class="deleteBtn" onclick="actionDelete(<%#Eval("iMaBao") %>)()">Xóa</button></td>
             
         </tr>
     </ItemTemplate>

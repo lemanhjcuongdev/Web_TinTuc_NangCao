@@ -39,7 +39,13 @@ namespace BTL_Web_TinTuc_NangCao
                     using(SqlDataAdapter sqlData = new SqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
+                        
                         sqlData.Fill(dt);
+                        dt.Columns.Add("ngay", (typeof(string)));
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            dt.Rows[i]["ngay"] = (string)((DateTime)dt.Rows[i]["dNgayPhatHanh"]).ToString("dd-MM-yyyy");
+                        }
                         return dt;
                     }
                 }
