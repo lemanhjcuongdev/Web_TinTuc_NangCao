@@ -81,7 +81,7 @@ h2 + div.content {
   width: 100%;
   border-radius: 6px;
   transition: all 0.2s;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 .content .item .information .label .title{
     padding: 4px 0px;
