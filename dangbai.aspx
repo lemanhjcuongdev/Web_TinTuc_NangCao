@@ -53,7 +53,6 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
       <div id="parentSubmit">
             <button id="submit" type="button" onclick="actionSubmit(0)">ĐĂNG BÀI</button>
       </div>
-    <!-- <input id="submit" type="submit" value="ĐĂNG BÀI" /> -->
     
   </form>
 
@@ -73,22 +72,13 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
     </HeaderTemplate>
     
     <ItemTemplate>   
-        <%--<tr id="<%#Eval("iMaBao") %>">
+        <tr id="<%#Eval("iMaBao") %>">
             <td><a href="trangconchitiet.aspx?id=<%#Eval("iMaBao") %>"> <b><%#Eval("sTenbao") %></b></a></td>
-            <td><%#Eval("sTentheloai") %></td>
-            <td><%#Eval("dNgayphathanh") %></td>
+            <td><%#Eval("sTenTheLoai") %></td>
+            <td><%#Eval("ngay") %></td>
             <td><img alt="<%# Eval("stenbao") %>" src="<%#Eval("sURLAnh") %>" /> </td>
             <td><button class="editBtn" onclick="actionAlter(<%#Eval("iMaBao") %>)()" >Sửa</button>
             <button class="deleteBtn" onclick="actionDelete(<%#Eval("iMaBao") %>)()">Xóa</button></td>
-            
-        </tr>--%>
-        <tr id="<%#Eval("idBao") %>">
-            <td><a href="trangconchitiet.aspx?id=<%#Eval("idBao") %>"> <b><%#Eval("tenbao") %></b></a></td>
-            <td><%#Eval("theloai") %></td>
-            <td><%#Eval("ngay") %></td>
-            <td><img alt="<%# Eval("tenbao") %>" src="<%#Eval("url") %>" /> </td>
-            <td><button class="editBtn" onclick="actionAlter(<%#Eval("idBao") %>)()" >Sửa</button>
-            <button class="deleteBtn" onclick="actionDelete(<%#Eval("idBao") %>)()">Xóa</button></td>
             
         </tr>
     </ItemTemplate>
@@ -257,8 +247,9 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
           var formData = new FormData();
           formData.append("delete", id);
           formData.append("isdelete", "yes");
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function () {
+          //ajax quân
+          var xhttp = new XMLHttpRequest(); // tạo đối tượng 
+          xhttp.onreadystatechange = function () { // xử lý khi dữ liệu trả về từ server ajaxDangBao
               if (xhttp.readyState == 4 && xhttp.status == 200) {
                   alert(xhttp.responseText);
                   var oldDiv = document.getElementById(id);
@@ -268,10 +259,9 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
                   document.getElementById("inputImage").value = null;
                   document.getElementById("inputTitle").focus();
                   btnSubmit.setAttribute("onclick", "actionSubmit(0)");
-
               }
           }
-          xhttp.open("Post", "ajaxDangBao.aspx", true);
+          xhttp.open("Post", "ajaxDangBao.aspx", true); // truyền dữ liệu 
           xhttp.send(formData);
       }
     

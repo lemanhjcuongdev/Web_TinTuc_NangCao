@@ -25,10 +25,10 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
                        <%#Eval("sTenBao") %>
                     </p>
                     <p class="sub_title">
-                      <%# Eval("sNoiDung").ToString().Substring(0, 100) %> <em>...Xem thêm</em>
+                      <%# Eval("abstract") %> <em>...Xem thêm</em>
                     </p>
                     <section class="description">
-                      <p class="time"><%#Eval("dNgayPhatHanh") %></p>
+                      <p class="time"><%#Eval("ngay") %></p>
                       <p class="category"><%#Eval("sTenTheLoai") %></p>
                     </section>
                   </div>
@@ -78,7 +78,8 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
         //call AJAX thêm vào hoặc xóa khỏi danh sách xem sau
           var xhr = new XMLHttpRequest();
           xhr.open("GET", "trangchu.aspx?id="+ id, true)
-          xhr.send()
+              xhr.send()
+              // end ajax
           } else{
               window.location.href = "login.aspx"
           }

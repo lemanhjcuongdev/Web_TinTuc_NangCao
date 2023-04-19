@@ -4,11 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Data;
 namespace BTL_Web_TinTuc_NangCao
 {
     public partial class theloai : System.Web.UI.Page
     {
+        string username;
         protected void Page_Load(object sender, EventArgs e)
         {
             string getbao;
@@ -46,6 +47,21 @@ namespace BTL_Web_TinTuc_NangCao
                
             }
           
+        }
+        protected bool IsSaved(string id)
+        {
+            _ = Request.Cookies["user"] != null ? username = Request.Cookies["user"].Value : username = "";
+            Bao bao = new Bao();
+            DataTable allBaoDaLuu = bao.getBaodaluu_User(username);
+
+            foreach (DataRow row in allBaoDaLuu.Rows)
+            {
+                if (row["iMaBao"].ToString() == id)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
