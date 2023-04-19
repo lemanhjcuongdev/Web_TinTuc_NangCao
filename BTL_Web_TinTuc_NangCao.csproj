@@ -307,6 +307,7 @@
     <Content Include="src\assets\css\trangconchitiet\trangconchitiet.css.map" />
     <Content Include="src\assets\css\trangconchitiet\trangconchitiet.scss" />
     <Content Include="theloai.aspx" />
+    <Content Include="timkiem.aspx" />
     <Content Include="trangchu.aspx" />
     <Content Include="trangconchitiet.aspx" />
     <Content Include="WelcomePage.aspx" />
@@ -381,6 +382,13 @@
     </Compile>
     <Compile Include="theloai.aspx.designer.cs">
       <DependentUpon>theloai.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="timkiem.aspx.cs">
+      <DependentUpon>timkiem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="timkiem.aspx.designer.cs">
+      <DependentUpon>timkiem.aspx</DependentUpon>
     </Compile>
     <Compile Include="trangchu.aspx.cs">
       <DependentUpon>trangchu.aspx</DependentUpon>

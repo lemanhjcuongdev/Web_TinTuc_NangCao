@@ -46,6 +46,25 @@ namespace BTL_Web_TinTuc_NangCao
             }
         }
 
+        public DataTable timkiemBao(string searchValue)
+        {
+            using (SqlConnection connection = new SqlConnection(constr))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand("sp_timkiem", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@keyword", searchValue);
+                    using (SqlDataAdapter sqlData = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sqlData.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
         public DataTable getTheLoaiBao_Ten(string username)
         {
 
