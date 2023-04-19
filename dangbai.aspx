@@ -247,8 +247,9 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
           var formData = new FormData();
           formData.append("delete", id);
           formData.append("isdelete", "yes");
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function () {
+          //ajax quân
+          var xhttp = new XMLHttpRequest(); // tạo đối tượng 
+          xhttp.onreadystatechange = function () { // xử lý khi dữ liệu trả về từ server ajaxDangBao
               if (xhttp.readyState == 4 && xhttp.status == 200) {
                   alert(xhttp.responseText);
                   var oldDiv = document.getElementById(id);
@@ -258,10 +259,9 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
                   document.getElementById("inputImage").value = null;
                   document.getElementById("inputTitle").focus();
                   btnSubmit.setAttribute("onclick", "actionSubmit(0)");
-
               }
           }
-          xhttp.open("Post", "ajaxDangBao.aspx", true);
+          xhttp.open("Post", "ajaxDangBao.aspx", true); // truyền dữ liệu 
           xhttp.send(formData);
       }
     
