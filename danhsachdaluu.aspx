@@ -29,7 +29,7 @@ Inherits="BTL_Web_TinTuc_NangCao.danhsachdaluu" %>
            <%#Eval("sTenBao") %>
           </p>
           <p class="sub_title">
-              <%# Eval("sNoiDung").ToString().Substring(0, 100) %> <a href="#" id="see_more"><i>...Xem thêm</i></a>
+              <%# Eval("abstract") %> <a href="#" id="see_more"><i>...Xem thêm</i></a>
           </p>
         </div>
         <section class="description">
