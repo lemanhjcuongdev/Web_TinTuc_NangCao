@@ -53,7 +53,6 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
       <div id="parentSubmit">
             <button id="submit" type="button" onclick="actionSubmit(0)">ĐĂNG BÀI</button>
       </div>
-    <!-- <input id="submit" type="submit" value="ĐĂNG BÀI" /> -->
     
   </form>
 
@@ -73,15 +72,6 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
     </HeaderTemplate>
     
     <ItemTemplate>   
-        <%--<tr id="<%#Eval("iMaBao") %>">
-            <td><a href="trangconchitiet.aspx?id=<%#Eval("iMaBao") %>"> <b><%#Eval("sTenbao") %></b></a></td>
-            <td><%#Eval("sTentheloai") %></td>
-            <td><%#Eval("dNgayphathanh") %></td>
-            <td><img alt="<%# Eval("stenbao") %>" src="<%#Eval("sURLAnh") %>" /> </td>
-            <td><button class="editBtn" onclick="actionAlter(<%#Eval("iMaBao") %>)()" >Sửa</button>
-            <button class="deleteBtn" onclick="actionDelete(<%#Eval("iMaBao") %>)()">Xóa</button></td>
-            
-        </tr>--%>
         <tr id="<%#Eval("iMaBao") %>">
             <td><a href="trangconchitiet.aspx?id=<%#Eval("iMaBao") %>"> <b><%#Eval("sTenbao") %></b></a></td>
             <td><%#Eval("sTenTheLoai") %></td>
