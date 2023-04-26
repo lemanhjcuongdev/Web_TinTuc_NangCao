@@ -21,7 +21,7 @@ namespace BTL_Web_TinTuc_NangCao
             Bao bao = new Bao();
             DataTable dtAllBao = bao.getAllBao();
             // sắp xếp báo theo mới nhất
-           // dtAllBao = dtAllBao.AsEnumerable().OrderByDescending(row => row["dNgayPhatHanh"]).CopyToDataTable();
+            dtAllBao = dtAllBao.AsEnumerable().OrderByDescending(row => row["dNgayPhatHanh"]).CopyToDataTable();
             rptBaoTrangChu.DataSource = dtAllBao;
             rptBaoTrangChu.DataBind();
 

@@ -28,6 +28,8 @@ marquee {
 }
 .header__in4 {
     display: flex;
+    margin-left:auto;
+    margin-right:auto;
 }
 .header__attention {
     animation: scroll 2.5s ease infinite;
