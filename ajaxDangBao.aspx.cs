@@ -48,6 +48,7 @@ namespace BTL_Web_TinTuc_NangCao
                         return;
                     }
                 }
+                //add ảnh
                 bao.tacgia = "admin";
                 bao.ngayphathanh = DateTime.Now;
                 bao.ngay = bao.ngayphathanh.ToString("MM-dd-yyyy");
