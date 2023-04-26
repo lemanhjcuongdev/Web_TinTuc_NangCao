@@ -77,9 +77,13 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
 
         //call AJAX thêm vào hoặc xóa khỏi danh sách xem sau
           var xhr = new XMLHttpRequest();
-          xhr.open("GET", "trangchu.aspx?id="+ id, true)
-              window.location.href = "login.aspx"
-          }
+              xhr.open("GET", "trangchu.aspx?id=" + id, true)
+              xhr.send();
+              
+            }
+            if (!isLoggedIn) {
+                window.location.href = "login.aspx"
+            }
         })
       })
   </script>
