@@ -16,73 +16,76 @@ namespace BTL_Web_TinTuc_NangCao
         {
 
             Bao bao = new Bao();
-            // lấy giá trị truyền vào input
-            if (Request.Form["id"] != null & Request.Form["inputTitle"]==null)
+            //xóa báo
+            if (Request.Form["delete"] != null)
+            {
+                int id = int.Parse(Request.Form["delete"]);   
+                if (bao.removeBao(id))
                 {
-                    bao.idBao = int.Parse(Request.Form["id"]);
-                    bao = bao.getBaoID(bao.idBao);
-                    JavaScriptSerializer serializer = new JavaScriptSerializer();
-                    string json = serializer.Serialize(bao);
-                    Response.Write(json);
-                    Response.ContentType = "application/json; charset=utf-8";
+                    Response.Flush();
+                    Response.Write("Xóa thành công!");
                     Response.End();
                     return;
                 }
-                //xóa
-                if(Request.Form["delete"] != null)
+                else
                 {
-                    int id =  int.Parse(Request.Form["delete"]);
-                    bao = bao.getBaoID(id);
-                    if (bao.removeBao(id))
-                    {
-                        Response.Flush(); 
-                        Response.Write("Xóa thành công!");
-                        Response.End();
-                        return;
-                    }
-                    else
-                    {
-                        Response.Flush();
-                        Response.Write("Xóa thất bại!");
-                        Response.End();
-                        return;
-                    }
+                    Response.Flush();
+                    Response.Write("Xóa thất bại!");
+                    Response.End();
+                    return;
                 }
-                //add ảnh
-                bao.tacgia = "admin";
-                bao.ngayphathanh = DateTime.Now;
-                bao.ngay = bao.ngayphathanh.ToString("MM-dd-yyyy");
-                bao.tenbao = Request.Form["inputTitle"];
-                bao.noidung = HttpUtility.UrlDecode(Request.Form["inputContent"].ToString());
-                bao.idTheLoai = int.Parse(Request.Form["inputTheLoai"]);
-                HttpPostedFile file = Request.Files["inputImage"];
-                int counter = 10;
-                string saveDir = "assets/";
-                string fileName = "anh10.jpg";
-                string pathToCheck = Server.MapPath("~/" + saveDir + fileName);
-                string temptName = "";
-                if (File.Exists(pathToCheck))
+            }
+
+            // lấy giá trị truyền vào input
+            if (Request.Form["id"] != null & Request.Form["inputTitle"] == null)
+            {
+                bao.idBao = int.Parse(Request.Form["id"]);
+               bao.getBaoID(bao.idBao); // lấy thông tin báo theo id truyền vào từ nút sửa
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                string json = serializer.Serialize(bao);    // đóng gói thành json và truyền về Client
+                Response.Write(json);
+                Response.ContentType = "application/json; charset=utf-8";
+                Response.End();
+                return;
+            }
+
+            // gán data vào Báo 
+            bao.tacgia = "admin";
+            bao.ngayphathanh = DateTime.Now;
+            bao.ngay = bao.ngayphathanh.ToString("dd-MM-yyyy");
+            bao.tenbao = Request.Form["inputTitle"];
+            bao.noidung = HttpUtility.UrlDecode(Request.Form["inputContent"].ToString());
+            bao.idTheLoai = int.Parse(Request.Form["inputTheLoai"]);
+
+            // xử lý lưu ảnh tránh trùng tên
+            HttpPostedFile file = Request.Files["inputImage"];
+            int counter = 1;
+            string saveDir = "assets/";
+            string fileName = "anh1.jpg";
+            string pathToCheck = Server.MapPath("~/" + saveDir + fileName);
+            string temptName = "";
+            if (File.Exists(pathToCheck))
+            {
+                while (File.Exists(pathToCheck))
                 {
-                    while (File.Exists(pathToCheck))
-                    {
-                        temptName = "anh" + counter.ToString() + ".jpg";
-                        pathToCheck = Server.MapPath("~/" + saveDir + temptName);
-                        counter++;
-                    }
-                    fileName = temptName;
+                    temptName = "anh" + counter.ToString() + ".jpg";
+                    pathToCheck = Server.MapPath("~/" + saveDir + temptName);
+                    counter++;
                 }
-                bao.url = saveDir + fileName;
-                file.SaveAs(Server.MapPath(saveDir + fileName));
-                
-                // sửa báo
-                if(int.Parse(Request.Form["id"]) != 0)
+                fileName = temptName;
+            }
+            bao.url = saveDir + fileName;
+            file.SaveAs(Server.MapPath(saveDir + fileName));
+
+            // sửa báo
+            if (Request.Form["id"]!=null && int.Parse(Request.Form["id"]) != 0) // 0 là id ảo dành cho trường hợp đăng báo
                 {
                     bao.idBao = int.Parse(Request.Form["id"]);
                     
                     if (bao.updateBao(bao))
                     {
                         bao.idBao = int.Parse(Request.Form["id"]);
-                        bao.getBaoID(int.Parse(Request.Form["id"]));
+                        //bao.getBaoID(int.Parse(Request.Form["id"]));
                         JavaScriptSerializer serializer = new JavaScriptSerializer();
                         string json = serializer.Serialize(bao);
                         Response.Write(json);
@@ -96,20 +99,22 @@ namespace BTL_Web_TinTuc_NangCao
                         return;
                     }
                 }
-                //đăng báo
-                if (int.Parse(Request.Form["id"]) == 0)
-                {
-                    
-                    bao.addBao(bao);
-                    bao.idBao = bao.getID();
-                    bao.getBaoID(bao.idBao);
-                    JavaScriptSerializer serializer = new JavaScriptSerializer();
-                    string json = serializer.Serialize(bao);
-                    Response.Write(json);
-                    Response.ContentType = "application/json; charset=utf-8";
-                    Response.End();
-                }
-                
+
+            
+            //đăng báo
+            if (Request.Form["id"] != null && int.Parse(Request.Form["id"]) == 0) // Trường hợp khi id =0 thì xác định là đăng báo , coi 0 là id ảo vì ko lấy giá trị này 
+            {
+                bao.addBao(bao); // thêm báo
+                bao.getIDBao(); // lấy id báo vừa thêm
+                bao.getBaoID(bao.idBao);
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                string json = serializer.Serialize(bao);
+                Response.Write(json);
+                Response.ContentType = "application/json; charset=utf-8";
+                Response.End();
             }
+
+
+        }
         }
     }

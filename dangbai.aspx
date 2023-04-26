@@ -171,12 +171,6 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
 
       function replaceData(resJson) {
           var bao = JSON.parse(resJson);
-          var dateString = bao.ngay;
-          let currentDate = new Date(dateString);
-          let day = String(currentDate.getDate()).padStart(2, '0');
-          let month = String(currentDate.getMonth() + 1).padStart(2, '0');
-          let year = currentDate.getFullYear();
-          let formattedDate = `${day}/${month}/${year}`;
           var shtml = '<td>';
           shtml += '<a href="trangconchitiet.aspx?id=' + bao.idBao + '"> <b>' + bao.tenbao + '</b> </a>';
           shtml += '</td>';
@@ -184,7 +178,7 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
           shtml += ddlTheLoai.options[ddlTheLoai.selectedIndex].text;
           shtml += '</td>';
           shtml += '<td>';
-          shtml += formattedDate ;
+          shtml += bao.ngay;
           shtml += '</td>';
           shtml += '<td>';
           shtml += '<img alt="' + bao.tenbao + '" src="' + bao.url + '"/>';
@@ -204,19 +198,22 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
               var btnSubmit = document.querySelector("#submit");
               btnSubmit.setAttribute("onclick", "actionSubmit(0)");
               alert('Sửa lại thành công !');
+              inputContent.value = null;
+              inputTitle.value = null;
+              ddlTheLoai.value = null;
           }
       }
 
 
       function showData(resJson) {
           var bao = JSON.parse(resJson);
-          var dateString = bao.ngay;
+          /*var dateString = bao.ngay;
           let currentDate = new Date(dateString);
           let day = String(currentDate.getDate()).padStart(2, '0');
           let month = String(currentDate.getMonth() + 1).padStart(2, '0');
           let year = currentDate.getFullYear();
           let formattedDate = `${day}/${month}/${year}`;
-
+*/
           var shtml = '<td>';
           shtml += '<a href="trangconchitiet.aspx?id=' + bao.idBao + '"> <b>' + bao.tenbao +'</b> </a>';
           shtml += '</td>';
@@ -224,7 +221,7 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
           shtml += ddlTheLoai.options[ddlTheLoai.selectedIndex].text;
           shtml += '</td>';
           shtml += '<td>';
-          shtml += formattedDate;
+          shtml += bao.ngay;
           shtml += '</td>';
           shtml += '<td>';
           shtml += '<img alt="' + bao.tenbao + '" src="' + bao.url + '"/>';
