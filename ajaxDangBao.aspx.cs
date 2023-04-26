@@ -51,7 +51,7 @@ namespace BTL_Web_TinTuc_NangCao
                 bao.tacgia = "admin";
                 bao.ngayphathanh = DateTime.Now;
                 bao.ngay = bao.ngayphathanh.ToString("MM-dd-yyyy");
-                bao.tenbao = Request.Form["inputTitle"];
+                bao.tenbao = HttpUtility.UrlDecode(Request.Form["inputTitle"].ToString());
                 bao.noidung = Request.Form["inputContent"];
                 bao.idTheLoai = int.Parse(Request.Form["inputTheLoai"]);
                 HttpPostedFile file = Request.Files["inputImage"];
