@@ -53,7 +53,7 @@ namespace BTL_Web_TinTuc_NangCao
                 bao.ngayphathanh = DateTime.Now;
                 bao.ngay = bao.ngayphathanh.ToString("MM-dd-yyyy");
                 bao.tenbao = Request.Form["inputTitle"];
-                bao.noidung = Request.Form["inputContent"];
+                bao.noidung = HttpUtility.UrlDecode(Request.Form["inputContent"].ToString());
                 bao.idTheLoai = int.Parse(Request.Form["inputTheLoai"]);
                 HttpPostedFile file = Request.Files["inputImage"];
                 int counter = 10;
