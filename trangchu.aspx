@@ -64,22 +64,22 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
           //lấy id bài báo khi click icon lưu
           const id = e.target.closest(".item").dataset.id
           if(isLoggedIn){
-          saved = !saved
-
-          if(saved){
-            btn.classList.remove("fa-regular")
-            btn.classList.add("fa-solid")
-          }
-          else{
-            btn.classList.remove("fa-solid")
-            btn.classList.add("fa-regular")
-          }
+              saved = !saved
+              if(saved){
+                btn.classList.remove("fa-regular")
+                btn.classList.add("fa-solid")
+                }
+              else{
+                btn.classList.remove("fa-solid")
+                btn.classList.add("fa-regular")
+                }
 
         //call AJAX thêm vào hoặc xóa khỏi danh sách xem sau
           var xhr = new XMLHttpRequest();
           xhr.open("GET", "trangchu.aspx?id="+ id, true)
           xhr.send()
-          } else{
+            }
+          else {
               window.location.href = "login.aspx"
           }
         })

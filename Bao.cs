@@ -23,7 +23,7 @@ namespace BTL_Web_TinTuc_NangCao
 
         public Bao()
         {
-            ngay = ngayphathanh.ToString("MM-dd-yyyy");
+            ngay = ngayphathanh.ToString("dd-MM-yyyy");
         }
 
         string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString.ToString();
@@ -81,9 +81,9 @@ namespace BTL_Web_TinTuc_NangCao
             }
         }
 
-        public Bao getBaoID(int id)
+        public void getBaoID(int id)
         {
-            Bao bao = new Bao();
+            
             using (SqlConnection connection = new SqlConnection(constr))
             {
                 connection.Open();
@@ -97,24 +97,24 @@ namespace BTL_Web_TinTuc_NangCao
                         sqlData.Fill(dt);
                         foreach (DataRow row in dt.Rows)
                         {
-                            bao.idBao = id;
-                            bao.tenbao = row["sTenBao"].ToString();
-                            bao.noidung = row["sNoiDung"].ToString();
-                            bao.idTheLoai = int.Parse(row["iMaTheLoai"].ToString());
-                            bao.url = row["sURLanh"].ToString();
-                            bao.soluotxem = int.Parse(row["isoluotxem"].ToString());
-                            bao.ngayphathanh = DateTime.Parse(row["dNgayPhatHanh"].ToString());
-                            bao.ngay = bao.ngayphathanh.ToString("MM-dd-yyyy");
+                            idBao = id;
+                            tenbao = row["sTenBao"].ToString();
+                            noidung = row["sNoiDung"].ToString();
+                            idTheLoai = int.Parse(row["iMaTheLoai"].ToString());
+                            url = row["sURLanh"].ToString();
+                            soluotxem = int.Parse(row["isoluotxem"].ToString());
+                            ngayphathanh = DateTime.Parse(row["dNgayPhatHanh"].ToString());
+                            ngay = ngayphathanh.ToString("dd-MM-yyyy");
+                            theloai = getTheloai(idTheLoai);
                         }
                     }
                 }
             }
-            return bao;
         }
 
-        public int getID()
+        public void getIDBao()
         {
-            int id = 0;
+            
             using (SqlConnection connection = new SqlConnection(constr))
             {
                 connection.Open();
@@ -124,12 +124,12 @@ namespace BTL_Web_TinTuc_NangCao
                     SqlDataReader rd = cmd.ExecuteReader();
                     if (rd.Read())
                     {
-                            id= int.Parse(rd["iMaBao"].ToString());
+                            idBao= int.Parse(rd["iMaBao"].ToString());
                     }
                 }
             }
 
-            return id;
+            
         }
 
         public string getTheloai(int id)
