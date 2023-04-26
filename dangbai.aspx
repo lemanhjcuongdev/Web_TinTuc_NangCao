@@ -112,6 +112,7 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" ValidateRequest="false" %>
               return;
           }
           var formData = new FormData();
+
           formData.append("id", id);
           formData.append("inputImage", inputImage.files[0]);
           formData.append("inputTitle", inputTitle.value);

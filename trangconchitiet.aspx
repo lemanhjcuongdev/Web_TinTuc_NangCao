@@ -29,9 +29,9 @@ Inherits="BTL_Web_TinTuc_NangCao.trangconchitiet" %>
                     <%#Eval("noidung") %>
                 </pre>
               </div>
-            <div class="child_footer1">
+           <%-- <div class="child_footer1">
                <i>( Số lượt xem: <%#Eval("soluotxem") %> )</i> 
-            </div>
+            </div>--%>
         </ItemTemplate>
         
     </asp:Repeater>

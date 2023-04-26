@@ -11,7 +11,7 @@ namespace BTL_Web_TinTuc_NangCao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-/*            string htmls = "Hiện có ";
+            /*string htmls = "Hiện có ";
             htmls += Application["numberWrong"].ToString();
             htmls += " lượt truy cập";
             isOnline.InnerHtml = htmls;*/
