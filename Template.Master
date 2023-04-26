@@ -27,14 +27,6 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
     <asp:ContentPlaceHolder ID="head" runat="server"> </asp:ContentPlaceHolder>
   </head>
   <body>
-      <div id="header_first">
-                <div class="header__in4">
-                    <div class="header__attention">
-                      <i class="far fa-hand-point-right"></i>
-                    </div>
-                    <marquee behavior="" direction="" width="100%"  >Nhóm Lê Mạnh Cường , Phạm Hồng Quân , Lê Tuấn Vũ bài tập lớn web nâng cao</marquee>
-                </div>
-    </div>
     <span id="scroll_to_top"></span>
     <header id="header">
       <nav>
@@ -194,6 +186,14 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
           </a>
         </li>
       </ul>
+    <div id="header_first">
+                <div class="header__in4">
+                    <div class="header__attention">
+                      <i class="far fa-hand-point-right"></i>
+                    </div>
+                    <marquee behavior="" direction="" width="100%"  >Nhóm Lê Mạnh Cường , Phạm Hồng Quân , Lê Tuấn Vũ bài tập lớn web nâng cao</marquee>
+                </div>
+    </div>
     </footer>
     <script type="text/javascript">
       const inputSearch = document.querySelector("#inputSearch")

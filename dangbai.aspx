@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template.Master"
 AutoEventWireup="true" CodeBehind="dangbai.aspx.cs"
-Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
+Inherits="BTL_Web_TinTuc_NangCao.dangbai" ValidateRequest="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content
@@ -94,6 +94,7 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
         alert("Tiêu đề tối thiểu phải có 3 từ!");
       }
     });
+
       function actionSubmit(id) {
           const cate_Select = document.querySelector(".category");
           const inputTitle = document.getElementById("inputTitle");
@@ -249,6 +250,9 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
           xhttp.onreadystatechange = function () { // xử lý khi dữ liệu trả về từ server ajaxDangBao
               if (xhttp.readyState == 4 && xhttp.status == 200) {
                   alert(xhttp.responseText);
+                  if (xhttp.responseText == "Xóa thất bại!") {
+                      return;
+                  }
                   var oldDiv = document.getElementById(id);
                   oldDiv.remove();
                   document.getElementById("inputTitle").value = null;

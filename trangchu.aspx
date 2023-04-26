@@ -39,8 +39,8 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
             </section>
         </ItemTemplate>
     </asp:Repeater>
-
   </div>
+
   <script>
       const notSaveBtns = document.querySelectorAll(".fa-regular"); //lấy tất cả button chưa save
 
@@ -62,7 +62,8 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
         btn.addEventListener("click",(e)=>{
           e.preventDefault();
           //lấy id bài báo khi click icon lưu
-          const id = e.target.closest(".item").dataset.id
+            const id = e.target.closest(".item").dataset.id
+            
           if(isLoggedIn){
               saved = !saved
               if(saved){
