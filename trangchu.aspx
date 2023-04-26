@@ -39,8 +39,39 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
             </section>
         </ItemTemplate>
     </asp:Repeater>
-
   </div>
+
+    <h2>Báo hot nhất hôm nay cho bạn</h2>
+    <div class="content">
+    <asp:Repeater ID="Repeater1" runat="server">
+        <ItemTemplate>
+            <section class="item" data-id="<%# Eval("iMaBao") %>">
+              <a href="trangconchitiet.aspx?id=<%# Eval("iMaBao") %>">
+                <img
+                  src="<%# Eval("sURLAnh") %>""
+                />
+                <div class="information">
+                  <div class="label">
+                    <p class="title">
+                       <%#Eval("sTenBao") %>
+                    </p>
+                    <p class="sub_title">
+                      <%# Eval("abstract") %> <em>...Xem thêm</em>
+                    </p>
+                    <section class="description">
+                      <p class="time"><%#Eval("ngay") %></p>
+                      <p class="category"><%#Eval("sTenTheLoai") %></p>
+                    </section>
+                  </div>
+                   <%-- icon click lưu báo--%>
+                  <i data-value="<%# IsSaved(Eval("iMaBao").ToString()) %>" class="fa-regular fa-bookmark" title="Thêm hoặc xóa bài báo trong danh sách đọc sau"></i>
+                </div>
+              </a>
+            </section>
+        </ItemTemplate>
+    </asp:Repeater>
+  </div>
+
   <script>
       const notSaveBtns = document.querySelectorAll(".fa-regular"); //lấy tất cả button chưa save
 
@@ -62,7 +93,8 @@ Inherits="BTL_Web_TinTuc_NangCao.trangchu" %>
         btn.addEventListener("click",(e)=>{
           e.preventDefault();
           //lấy id bài báo khi click icon lưu
-          const id = e.target.closest(".item").dataset.id
+            const id = e.target.closest(".item").dataset.id
+            
           if(isLoggedIn){
           saved = !saved
 

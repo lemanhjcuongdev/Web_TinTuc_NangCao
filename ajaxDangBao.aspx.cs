@@ -52,7 +52,7 @@ namespace BTL_Web_TinTuc_NangCao
                 bao.ngayphathanh = DateTime.Now;
                 bao.ngay = bao.ngayphathanh.ToString("MM-dd-yyyy");
                 bao.tenbao = Request.Form["inputTitle"];
-                bao.noidung = Request.Form["inputContent"];
+                bao.noidung = HttpUtility.UrlDecode(Request.Form["inputContent"].ToString());
                 bao.idTheLoai = int.Parse(Request.Form["inputTheLoai"]);
                 HttpPostedFile file = Request.Files["inputImage"];
                 int counter = 10;
@@ -99,9 +99,9 @@ namespace BTL_Web_TinTuc_NangCao
                 if (int.Parse(Request.Form["id"]) == 0)
                 {
                     
-                    bao.addBao(bao);
-                    bao.idBao = bao.getID();
-                    bao.getBaoID(bao.idBao);
+                    bao.addBao(bao); // thêm báo vào SQL
+                    bao.idBao = bao.getID(); // lấy id báo vừa thêm
+                    bao.getBaoID(bao.idBao); // lấy thông tin báo vừa thêm để ajax
                     JavaScriptSerializer serializer = new JavaScriptSerializer();
                     string json = serializer.Serialize(bao);
                     Response.Write(json);
