@@ -113,8 +113,8 @@ Inherits="BTL_Web_TinTuc_NangCao.dangbai" %>
           var formData = new FormData();
           formData.append("id", id);
           formData.append("inputImage", inputImage.files[0]);
-          formData.append("inputTitle", inputTitle.value );
-          formData.append("inputContent", inputContent.value);
+          formData.append("inputTitle", inputTitle.value);
+          formData.append("inputContent", encodeURIComponent(inputContent.value));
           formData.append("inputTheLoai", ddlTheLoai.value);
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function () {
