@@ -30,7 +30,7 @@ Inherits="BTL_Web_TinTuc_NangCao.trangconchitiet" %>
                 </pre>
               </div>
             <div class="child_footer1">
-               <i>( Số lượt xem : <%#Eval("soluotxem") %> )</i> 
+               <i>( Số lượt xem: <%#Eval("soluotxem") %> )</i> 
             </div>
         </ItemTemplate>
         

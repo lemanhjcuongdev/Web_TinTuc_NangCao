@@ -70,18 +70,17 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
           </li>
           <li>
             <form
-              action="trangchu.aspx"
-              method="post"
-              id="form1"
-              
+            id="form1"
+             action="timkiem.aspx"
+              method="get"
             >
-              <input name="inputSearch" type="text" placeholder="Tìm kiếm" />
-              <button type="submit" title="Tìm kiếm">
+              <input id="inputSearch" name="inputSearch" type="text" placeholder="Tìm kiếm" />
+              <button id="searchBtn" title="Tìm kiếm">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
             </form>
           </li>
-             
+
           <li class="personal active">
 
               <div id="login" runat="server">
@@ -89,7 +88,7 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
                 Đăng Nhập
             </a>
               </div>
-              
+
                <div id="nav" runat="server">
                         <i class="fa-solid fa-user" ></i>
                          <span id="name"></span>
@@ -123,7 +122,7 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
                      </div>
 
                    </div>
-                
+
                    <div id="user" runat="server">
                        <div class="popup">
                        <ul>
@@ -151,22 +150,22 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
                        </ul>
                      </div>
                    </div>
-                     
+
                </div>
           </li>
-       
+
         </ul>
       </nav>
     </header>
-      
+
         <div class="main_content" id="main_content">
               <div class="container">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
               </div>
         </div>
-      
-    
+
+
     <footer>
         <div style="background:yellow; text-align:center">
             <span id="isOnline" runat="server"></span>
@@ -197,6 +196,8 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
       </ul>
     </footer>
     <script type="text/javascript">
+      const inputSearch = document.querySelector("#inputSearch")
+      const searchBtn = document.querySelector("#searchBtn")
 
         if (document.cookie.split('=')[1] != null) {
             if (document.cookie.split('=')[1] == "admin") {
@@ -214,6 +215,20 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
             document.getElementById("login").style.display = "block";
             document.getElementById("nav").style.display = "none";
         }
+
+        //SEARCH ENGINE
+        const handleSearch = function() {
+          const searchValue = inputSearch.value;
+          if(inputSearch.value !== ""){
+            window.location.href = "timkiem.aspx?search=" + searchValue
+          }
+        }
+        searchBtn.addEventListener("click", handleSearch)
+        inputSearch.addEventListener("keydown", function(e){
+          if(e.key === "Enter"){
+            handleSearch()
+          }
+        })
     </script>
   </body>
 </html>

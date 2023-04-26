@@ -1,22 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template.Master"
-AutoEventWireup="true" CodeBehind="theloai.aspx.cs"
-Inherits="BTL_Web_TinTuc_NangCao.theloai" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content
-  ID="Content2"
-  ContentPlaceHolderID="ContentPlaceHolder1"
-  runat="server"
->
-  <link
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template.Master" AutoEventWireup="true" CodeBehind="timkiem.aspx.cs" Inherits="BTL_Web_TinTuc_NangCao.timkiem" %>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link
     rel="stylesheet"
-    href="./src/assets/css/trangchu_theloai_search/trangchu.css"
-  />
-  <h2 id="titleTheLoai" runat="server"></h2>
- <div class="content">
-    <asp:Repeater ID="Repeater1" runat="server">
-        <ItemTemplate>
-            <section class="item" data-id="<%# Eval("iMaBao") %>">
+    href="/src/assets/css/trangchu_theloai_search/trangchu.css"
+    />
+    <h2 id="result" runat="server">Kết quả tìm kiếm</h2>
+    <div class="content">
+        <asp:Repeater ID="rptTimKiem" runat="server">
+            <ItemTemplate>
+                <section class="item" data-id="<%# Eval("iMaBao") %>">
               <a href="trangconchitiet.aspx?id=<%# Eval("iMaBao") %>">
                 <img
                   src="<%# Eval("sURLAnh") %>""
@@ -27,10 +20,10 @@ Inherits="BTL_Web_TinTuc_NangCao.theloai" %>
                        <%#Eval("sTenBao") %>
                     </p>
                     <p class="sub_title">
-                      <%# Eval("abstract") %> <em>...Xem thêm</em>
+                      <%# Eval("sNoiDung").ToString().Substring(0, 100) %> <em>...Xem thêm</em>
                     </p>
                     <section class="description">
-                      <p class="time"><%#Eval("ngay") %></p>
+                      <p class="time"><%#Eval("dNgayPhatHanh") %></p>
                       <p class="category"><%#Eval("sTenTheLoai") %></p>
                     </section>
                   </div>
@@ -39,24 +32,16 @@ Inherits="BTL_Web_TinTuc_NangCao.theloai" %>
                 </div>
               </a>
             </section>
-        </ItemTemplate>
-    </asp:Repeater>
-
-  </div>
+            </ItemTemplate>
+        </asp:Repeater>
+    </div>
       <script>
       const notSaveBtns = document.querySelectorAll(".fa-regular"); //lấy tất cả button chưa save
 
       //check đăng nhập
       let isLoggedIn = document.cookie.toString().slice(0,4)=== "user"
 
-          function renderDSBao() {
-              var id = document
-              var xhr = new XMLHttpRequest();
-            
-          }
-
-          notSaveBtns.forEach((btn) => {
-            
+        notSaveBtns.forEach((btn)=>{
           //duyệt mảng các nút save
         let saved = btn.dataset.value === "True" ? true : false ;
         if(saved){
@@ -85,17 +70,13 @@ Inherits="BTL_Web_TinTuc_NangCao.theloai" %>
           }
 
         //call AJAX thêm vào hoặc xóa khỏi danh sách xem sau
-             
-              var xhr = new XMLHttpRequest();
+          var xhr = new XMLHttpRequest();
           xhr.open("GET", "trangchu.aspx?id="+ id, true)
-              xhr.send()
-             
+          xhr.send()
           } else{
               window.location.href = "login.aspx"
-            }
-
+          }
         })
-        })
-
+      })
       </script>
 </asp:Content>

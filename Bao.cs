@@ -26,7 +26,7 @@ namespace BTL_Web_TinTuc_NangCao
             ngay = ngayphathanh.ToString("dd-MM-yyyy");
         }
 
-        string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString.ToString();
+        string constr = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString.ToString();
 
         public DataTable getAllBao()
         {
@@ -61,6 +61,25 @@ namespace BTL_Web_TinTuc_NangCao
             }
         }
 
+        public DataTable timkiemBao(string searchValue)
+        {
+            using (SqlConnection connection = new SqlConnection(constr))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand("sp_timkiem", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@keyword", searchValue);
+                    using (SqlDataAdapter sqlData = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sqlData.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
         public DataTable getTheLoaiBao_Ten(string username)
         {
 
@@ -75,6 +94,20 @@ namespace BTL_Web_TinTuc_NangCao
                     {
                         DataTable dt = new DataTable();
                         sqlData.Fill(dt);
+                        dt.Columns.Add("ngay", (typeof(string)));
+                        dt.Columns.Add("abstract", (typeof(string)));
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            if (dt.Rows[i]["sNoidung"].ToString().Length > 100)
+                            {
+                                dt.Rows[i]["abstract"] = dt.Rows[i]["sNoidung"].ToString().Substring(0, 100);
+                            }
+                            else
+                            {
+                                dt.Rows[i]["abstract"] = dt.Rows[i]["sNoidung"].ToString();
+                            }
+                            dt.Rows[i]["ngay"] = (string)((DateTime)dt.Rows[i]["dNgayPhatHanh"]).ToString("dd-MM-yyyy");
+                        }
                         return dt;
                     }
                 }

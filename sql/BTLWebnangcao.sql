@@ -569,3 +569,36 @@ begin
 	inner join tblUser on tblBaoDaLuu.sTenTaiKhoan = tblUser.sTenTaiKhoan
 	where tblUser.sTenTaiKhoan = @stenUser 
 end
+go
+create proc sp_timkiem
+@keyword nvarchar(255)
+as
+begin
+	select * from tblBao inner join tblTheloaiBao on
+	tblTheloaiBao.iMaTheLoai = tblBao.iMaTheLoai where
+	sTenBao collate Vietnamese_CI_AI like N'%'+@keyword+'%' or 
+	sNoiDung collate Vietnamese_CI_AI like N'%xu%' or
+	tblTheloaiBao.sTenTheLoai collate Vietnamese_CI_AI like N'%đia%'
+end
+
+--cách kiểm tra bảng mã trong COLLATE
+SELECT 
+        name,
+        COLLATIONPROPERTY(name, 'CodePage') as CodePage,
+        COLLATIONPROPERTY(name, 'LCID') as LCID,
+        COLLATIONPROPERTY(name, 'ComparisonStyle') as ComparisonStyle,
+        description
+    FROM ::fn_helpcollations()
+
+--Cường sửa proc của Vũ
+go
+alter proc sp_getTheLoaiBao_Ten
+@tentheloai nvarchar(255)
+as
+begin
+	select iMaBao, sTenBao ,sNoiDung,dNgayPhatHanh,sURLAnh,sTenTacGia,sTenTheLoai
+	from tblBao
+	inner join tblTheloaiBao
+	on tblBao.iMaTheLoai = tblTheloaiBao.iMaTheLoai
+	where sTenTheLoai like N'%'+ @tentheloai +'%'
+end

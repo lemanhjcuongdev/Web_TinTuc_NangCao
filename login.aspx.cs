@@ -60,7 +60,6 @@ namespace BTL_Web_TinTuc_NangCao
                         Response.Write("ERORR:" + ex.Message);
                     }
                 }
-/*                else
                 {
                     error.InnerHtml = "Thông tin đăng nhập không được trống !";
                 }*/
