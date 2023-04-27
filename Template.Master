@@ -217,16 +217,19 @@ Inherits="BTL_Web_TinTuc_NangCao.Template" %>
         }
 
         //SEARCH ENGINE
-        const handleSearch = function() {
+        const handleSearch = function(e) {
           const searchValue = inputSearch.value;
-          if(inputSearch.value !== ""){
-            window.location.href = "timkiem.aspx?search=" + searchValue
-          }
+            if (inputSearch.value !== "") {
+                window.location.href = "timkiem.aspx?search=" + searchValue
+            }
+            else {
+                e.preventDefault();
+            }
         }
-        searchBtn.addEventListener("click", handleSearch)
+        searchBtn.addEventListener("click", (e) => handleSearch(e))
         inputSearch.addEventListener("keydown", function(e){
           if(e.key === "Enter"){
-            handleSearch()
+            handleSearch(e)
           }
         })
     </script>

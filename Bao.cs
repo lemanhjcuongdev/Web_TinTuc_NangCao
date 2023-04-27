@@ -74,6 +74,20 @@ namespace BTL_Web_TinTuc_NangCao
                     {
                         DataTable dt = new DataTable();
                         sqlData.Fill(dt);
+                        dt.Columns.Add("ngay", (typeof(string)));
+                        dt.Columns.Add("abstract", (typeof(string)));
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            if (dt.Rows[i]["sNoidung"].ToString().Length > 100)
+                            {
+                                dt.Rows[i]["abstract"] = dt.Rows[i]["sNoidung"].ToString().Substring(0, 100);
+                            }
+                            else
+                            {
+                                dt.Rows[i]["abstract"] = dt.Rows[i]["sNoidung"].ToString();
+                            }
+                            dt.Rows[i]["ngay"] = (string)((DateTime)dt.Rows[i]["dNgayPhatHanh"]).ToString("dd-MM-yyyy");
+                        }
                         return dt;
                     }
                 }
